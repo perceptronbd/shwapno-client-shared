@@ -22,20 +22,23 @@ rl.question("Enter the tag version (e.g., v1.0.0): ", (tagVersion) => {
     execSync("git submodule update --init", { stdio: "inherit" });
 
     // Navigate to the submodule directory and fetch tags
-    execSync("cd src/shared-components && git fetch --tags", {
+    execSync("cd src/shwapno-client-shared && git fetch --tags", {
       stdio: "inherit",
     });
 
     // Checkout the specified tag
-    execSync(`cd src/shared-components && git checkout tags/v${tagVersion}`, {
-      stdio: "inherit",
-    });
+    execSync(
+      `cd src/shwapno-client-shared && git checkout tags/v${tagVersion}`,
+      {
+        stdio: "inherit",
+      }
+    );
 
     // Navigate back to the main repository
     execSync("cd ../..", { stdio: "inherit" });
 
     // Add and commit the updated submodule reference
-    execSync("git add src/shared-components", { stdio: "inherit" });
+    execSync("git add src/shwapno-client-shared", { stdio: "inherit" });
     execSync(`git commit -m "Update submodule to tag ${tagVersion}"`, {
       stdio: "inherit",
     });
