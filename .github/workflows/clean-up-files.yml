@@ -22,6 +22,7 @@ jobs:
         run: |
           rm -rf .storybook
           rm -f tsconfig.json
+          rm -f README.md
           echo "Unwanted files removed."
 
       - name: Commit changes
