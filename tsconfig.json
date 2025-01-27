@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "@shared-components/*": ["src/components/*"]
+    },
+    "moduleResolution": "node"
+  },
+  "include": ["src", ".storybook"]
+}
