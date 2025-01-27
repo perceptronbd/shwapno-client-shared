@@ -2,14 +2,14 @@
 
 ## Description
 
-A **shared React component library** for reuse across multiple projects.
+A **shared React component library** for shwapno client
 
 ## Setup Github Submodule
 
 **RUN**
 
 ```
-git submodule add https://github.com/perceptronbd/shwapno-client-shared.git src/shared-components
+git submodule add https://github.com/perceptronbd/shared-module.git src/shared-components
 ```
 
 **package.json:** add inside the script block of the parent repository
