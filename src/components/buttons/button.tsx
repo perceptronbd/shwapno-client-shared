@@ -25,7 +25,7 @@ const buttonVariants = {
 };
 
 const sizeVariants = {
-  sm: "py-2 px-3 rounded-md",
+  sm: "py-2 px-3 rounded-sm",
   md: "py-3 px-5 rounded-lg",
   lg: "py-4 px-8 rounded-lg",
 };
