@@ -4,10 +4,10 @@ import { LucideLoader2 } from "lucide-react";
 
 import { cn } from "../../utils/cn";
 
-type Variant = "primary" | "outline" | "destructive";
-type Size = "default" | "sm" | "lg" | "icon";
+type Variant = keyof typeof buttonVariants;
+type Size = keyof typeof sizeVariants;
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
   size?: Size;
   disabled?: boolean;
@@ -17,6 +17,19 @@ interface ButtonProps {
   children?: React.ReactNode;
 }
 
+const buttonVariants = {
+  primary:
+    "bg-secondary-400 text-white hover:bg-secondary-500 disabled:bg-neutral-300",
+  outline:
+    "border-secondary-400 text-secondary-400 hover:text-secondary-500 hover:border-secondary-500",
+};
+
+const sizeVariants = {
+  sm: "py-2 px-3 rounded-md",
+  md: "py-3 px-5 rounded-lg",
+  lg: "py-4 px-8 rounded-lg",
+};
+
 export const Button: React.FC<ButtonProps> = React.forwardRef(
   (
     {
@@ -24,7 +37,7 @@ export const Button: React.FC<ButtonProps> = React.forwardRef(
       variant = "primary",
       disabled = false,
       loading = false,
-      size = "default",
+      size = "md",
       asChild = false,
       children,
       ...props
@@ -36,21 +49,9 @@ export const Button: React.FC<ButtonProps> = React.forwardRef(
     return (
       <Comp
         className={cn(
-          "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-8 text-sm font-medium ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-          {
-            "bg-red-500 text-white hover:bg-red-500/90":
-              variant === "destructive",
-            "bg-purple-500 text-white hover:bg-purple-500/90 ":
-              variant === "primary",
-            "border border-black h-10 text-primary-purple":
-              variant === "outline",
-          },
-          {
-            "h-10 px-4 py-2": size === "default" && variant !== "outline",
-            "h-9 px-3": size === "sm" && variant !== "outline",
-            "h-11 px-8": size === "lg" && variant !== "outline",
-            "h-10 w-10": size === "icon" && variant !== "outline",
-          },
+          "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-[12px] md:text-[14px] font-medium",
+          buttonVariants[variant],
+          sizeVariants[size],
           className
         )}
         disabled={disabled || loading}
