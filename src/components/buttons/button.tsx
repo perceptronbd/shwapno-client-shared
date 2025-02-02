@@ -49,7 +49,7 @@ export const Button: React.FC<ButtonProps> = React.forwardRef(
     return (
       <Comp
         className={cn(
-          "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-[12px] md:text-[14px] font-medium",
+          "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-xs md:text-sm lg:text-base font-medium",
           buttonVariants[variant],
           sizeVariants[size],
           className

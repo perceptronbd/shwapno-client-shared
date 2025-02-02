@@ -1,20 +1,17 @@
 // Replace your-framework with the name of your framework
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./button";
+import { Badge } from "./badge";
 
-const meta: Meta<typeof Button> = {
-  title: "Components/Button",
-  component: Button,
+const meta: Meta<typeof Badge> = {
+  title: "Components/Badge",
+  component: Badge,
   parameters: {
     layout: "centered",
-  },
-  args: {
-    children: "Click me",
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof Badge>;
 
 export const Default: Story = {
   args: {},
