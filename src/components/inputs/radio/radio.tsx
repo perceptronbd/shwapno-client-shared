@@ -42,7 +42,7 @@ export const Radio: React.FC<RadioProps> = ({
           <RadioGroupPrimitive.Item
             value={value}
             disabled={disabled}
-            className="h-6 w-6 rounded-full border border-primary-400 shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50"
+            className="h-6 w-6 rounded-full border border-primary-400 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50"
           >
             <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
               <Circle className="h-4 w-4 fill-primary-400" />
