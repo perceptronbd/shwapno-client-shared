@@ -14,6 +14,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   asChild?: boolean;
   className?: string;
+  ref?: React.ForwardedRef<HTMLButtonElement>;
   children?: React.ReactNode;
 }
 
@@ -30,47 +31,43 @@ const sizeVariants = {
   lg: "py-4 px-8 rounded-lg",
 };
 
-export const Button: React.FC<ButtonProps> = React.forwardRef(
-  (
-    {
-      className,
-      variant = "primary",
-      disabled = false,
-      loading = false,
-      size = "md",
-      asChild = false,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    const Comp = asChild ? Slot : "button";
+export const Button: React.FC<ButtonProps> = ({
+  className,
+  variant = "primary",
+  disabled = false,
+  loading = false,
+  size = "md",
+  asChild = false,
+  children,
+  ref,
+  ...props
+}) => {
+  const Comp = asChild ? Slot : "button";
 
-    return (
-      <Comp
-        className={cn(
-          "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-xs md:text-sm lg:text-base font-medium",
-          buttonVariants[variant],
-          sizeVariants[size],
-          className
-        )}
-        disabled={disabled || loading}
-        ref={ref as React.Ref<HTMLButtonElement>}
-        {...props}
-      >
-        {loading ? (
-          <>
-            <div className="flex h-4 w-4 animate-spin items-center justify-center rounded-full">
-              <LucideLoader2 />
-            </div>
-            {children && <span>{children}</span>}
-          </>
-        ) : (
-          <>{children}</>
-        )}
-      </Comp>
-    );
-  }
-);
+  return (
+    <Comp
+      className={cn(
+        "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-xs md:text-sm lg:text-base font-medium",
+        buttonVariants[variant],
+        sizeVariants[size],
+        className
+      )}
+      disabled={disabled || loading}
+      ref={ref as React.Ref<HTMLButtonElement>}
+      {...props}
+    >
+      {loading ? (
+        <>
+          <div className="flex h-4 w-4 animate-spin items-center justify-center rounded-full">
+            <LucideLoader2 />
+          </div>
+          {children && <span>{children}</span>}
+        </>
+      ) : (
+        <>{children}</>
+      )}
+    </Comp>
+  );
+};
 
 Button.displayName = "Button";
