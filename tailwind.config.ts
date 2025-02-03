@@ -1,12 +1,14 @@
 import type { Config } from "tailwindcss";
 
 import { customFontSizes } from "./src/utils/customFontSize";
+import { customSpacing } from "./src/utils/customSpacing";
 
 const tailwindConfig: Config = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontSize: customFontSizes,
+      spacing: customSpacing,
       colors: {
         primary: {
           100: "#E7E7EB",
