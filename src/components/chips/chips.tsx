@@ -11,6 +11,7 @@ interface ChipsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   children?: React.ReactNode;
   dismissible?: boolean;
+  ref?: React.ForwardedRef<HTMLButtonElement>;
   onDismiss?: () => void;
 }
 
@@ -22,40 +23,36 @@ const chipsVariants = {
   disabled: { style: "bg-neutral-200 text-neutral-500", label: "Disabled" },
 };
 
-export const Chips: React.FC<ChipsProps> = React.forwardRef(
-  (
-    {
-      className,
-      children,
-      variant = "primary",
-      disabled = false,
-      asChild = false,
-      dismissible = false,
-      onDismiss,
-      ...props
-    },
-    ref
-  ) => {
-    const Comp = asChild ? Slot : "button";
-    const { style, label } = chipsVariants[variant];
+export const Chips: React.FC<ChipsProps> = ({
+  className,
+  children,
+  variant = "primary",
+  disabled = false,
+  asChild = false,
+  dismissible = false,
+  onDismiss,
+  ref,
+  ...props
+}) => {
+  const Comp = asChild ? Slot : "button";
+  const { style, label } = chipsVariants[variant];
 
-    return (
-      <Comp
-        className={cn(
-          "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal px-3 py-2 rounded-lg",
-          style,
-          className
-        )}
-        ref={ref as React.Ref<HTMLButtonElement>}
-        {...props}
-      >
-        {children || label}
-        {dismissible && (
-          <LucideX onClick={onDismiss} aria-label="Dismiss" size={14} />
-        )}
-      </Comp>
-    );
-  }
-);
+  return (
+    <Comp
+      className={cn(
+        "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal px-3 py-2 rounded-lg",
+        style,
+        className
+      )}
+      ref={ref}
+      {...props}
+    >
+      {children || label}
+      {dismissible && (
+        <LucideX onClick={onDismiss} aria-label="Dismiss" size={14} />
+      )}
+    </Comp>
+  );
+};
 
 Chips.displayName = "Chips";
