@@ -1,6 +1,5 @@
 import React, { FC, InputHTMLAttributes } from "react";
-import { cn } from "src/utils/cn";
-import { customFontSizes } from "src/utils/customFontSize";
+import { cn } from "../../../utils/cn";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -19,7 +18,7 @@ export const Input: FC<InputProps> = ({
       {...props}
       ref={ref}
       className={cn(
-        "border text-black h-14 w-full pl-4 placeholder-bold rounded-2xl placeholder:text-sm",
+        "border text-black py-3 px-4 w-full text-base  placeholder-bold rounded-2xl placeholder:text-base",
         className,
         inputStyle
       )}
@@ -28,5 +27,3 @@ export const Input: FC<InputProps> = ({
 };
 
 Input.displayName = "Input";
-
-customFontSizes;
