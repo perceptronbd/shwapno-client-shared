@@ -26,7 +26,7 @@ interface SwitchProps {
   setIsToggled: Dispatch<SetStateAction<boolean>>;
 }
 
-const Switch: FC<SwitchProps> = ({
+export const Switch: FC<SwitchProps> = ({
   type = "active",
   containerClass,
   ballClass,
@@ -53,4 +53,3 @@ const Switch: FC<SwitchProps> = ({
     </div>
   );
 };
-export default Switch;

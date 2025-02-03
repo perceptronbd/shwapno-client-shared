@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import Switch from "./switch";
+import { Switch } from "./switch";
 
 // Define metadata for the Switch component
 const meta: Meta<typeof Switch> = {
