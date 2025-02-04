@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HtmlHTMLAttributes } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utils/cn";
 import { LucideX } from "lucide-react";
@@ -12,7 +12,7 @@ interface ChipsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   dismissible?: boolean;
   ref?: React.ForwardedRef<HTMLButtonElement>;
-  onDismiss?: () => void;
+  onDismiss?: HtmlHTMLAttributes<SVGSVGElement>["onClick"];
 }
 
 const chipsVariants = {
@@ -40,7 +40,7 @@ export const Chips: React.FC<ChipsProps> = ({
   return (
     <Comp
       className={cn(
-        "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal px-3 py-2 rounded-lg",
+        "focus-visible:ring-ring inline-flex items-center justify-center gap-1 rounded-[0.8rem] whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal px-3 py-2",
         style,
         className
       )}
@@ -49,7 +49,7 @@ export const Chips: React.FC<ChipsProps> = ({
     >
       {children || label}
       {dismissible && (
-        <LucideX onClick={onDismiss} aria-label="Dismiss" size={14} />
+        <LucideX onClick={onDismiss} aria-label="Dismiss" className="cursor-pointer" size={14} />
       )}
     </Comp>
   );

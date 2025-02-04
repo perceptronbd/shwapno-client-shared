@@ -5,7 +5,7 @@ import { cn } from "../../../utils/cn";
 
 interface CheckboxProps
   extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
-  asRef: React.ForwardedRef<HTMLButtonElement>;
+  asRef?: React.ForwardedRef<HTMLButtonElement>;
   className?: string;
 }
 
