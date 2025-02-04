@@ -1,4 +1,6 @@
-import React, { ReactNode, useEffect } from "react";
+"use client";
+
+import { ReactNode, useEffect } from "react";
 import { Button } from "../buttons/button";
 import { X } from "lucide-react";
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utils/cn";
 import { LucideX } from "lucide-react";
@@ -23,7 +23,7 @@ const chipsVariants = {
   disabled: { style: "bg-neutral-200 text-neutral-500", label: "Disabled" },
 };
 
-export const Chips: React.FC<ChipsProps> = ({
+export const Chips: FC<ChipsProps> = ({
   className,
   children,
   variant = "primary",

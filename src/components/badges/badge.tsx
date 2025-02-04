@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cn } from "../../utils/cn";
@@ -10,6 +10,7 @@ interface BadgeProps extends React.ButtonHTMLAttributes<HTMLDivElement> {
   asChild?: boolean;
   className?: string;
   children?: React.ReactNode;
+  ref?: React.ForwardedRef<HTMLDivElement>;
 }
 
 const badgeVariants = {
@@ -20,35 +21,31 @@ const badgeVariants = {
   disabled: { style: "bg-neutral-200 text-neutral-500", text: "Disabled" },
 };
 
-export const Badge: React.FC<BadgeProps> = React.forwardRef(
-  (
-    {
-      className,
-      children,
-      variant = "primary",
-      disabled = false,
-      asChild = false,
-      ...props
-    },
-    ref
-  ) => {
-    const Comp = asChild ? Slot : "div";
-    const { style, text } = badgeVariants[variant];
+export const Badge: FC<BadgeProps> = ({
+  className,
+  children,
+  variant = "primary",
+  disabled = false,
+  asChild = false,
+  ref,
+  ...props
+}) => {
+  const Comp = asChild ? Slot : "div";
+  const { style, text } = badgeVariants[variant];
 
-    return (
-      <Comp
-        className={cn(
-          "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal p-1 rounded-2xl",
-          style,
-          className
-        )}
-        ref={ref as React.Ref<HTMLDivElement>}
-        {...props}
-      >
-        {children || text}
-      </Comp>
-    );
-  }
-);
+  return (
+    <Comp
+      className={cn(
+        "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal p-1 rounded-2xl",
+        style,
+        className
+      )}
+      ref={ref}
+      {...props}
+    >
+      {children || text}
+    </Comp>
+  );
+};
 
 Badge.displayName = "Badge";
