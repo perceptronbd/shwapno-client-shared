@@ -1,6 +1,6 @@
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { LucideLoader2 } from "lucide-react";
+import { Icons } from "../../icons/index";
 
 import { cn } from "../../utils/cn";
 
@@ -59,7 +59,7 @@ export const Button: React.FC<ButtonProps> = ({
       {loading ? (
         <>
           <div className="flex h-4 w-4 animate-spin items-center justify-center rounded-full">
-            <LucideLoader2 />
+            <Icons.LucideLoader2 />
           </div>
           {children && <span>{children}</span>}
         </>

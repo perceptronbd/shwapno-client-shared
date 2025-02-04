@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utils/cn";
-import { LucideX } from "lucide-react";
+import { Icons } from "../../icons/index";
 
 type Variant = keyof typeof chipsVariants;
 
@@ -40,7 +40,7 @@ export const Chips: FC<ChipsProps> = ({
   return (
     <Comp
       className={cn(
-        "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal px-3 py-2 rounded-lg",
+        "focus-visible:ring-ring inline-flex items-center justify-center gap-1 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal px-3 py-2 rounded-[0.8rem]",
         style,
         className
       )}
@@ -49,7 +49,7 @@ export const Chips: FC<ChipsProps> = ({
     >
       {children || label}
       {dismissible && (
-        <LucideX onClick={onDismiss} aria-label="Dismiss" size={14} />
+        <Icons.LucideX onClick={onDismiss} aria-label="Dismiss" size={14} />
       )}
     </Comp>
   );

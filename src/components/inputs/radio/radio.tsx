@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { Circle } from "lucide-react";
 import { cn } from "../../../utils/cn";
+import { Icons } from "../../../icons/index";
 
 interface RadioOption {
   label: string;
@@ -45,7 +45,7 @@ export const Radio: React.FC<RadioProps> = ({
             className="h-6 w-6 rounded-full border border-primary-400 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50"
           >
             <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-              <Circle className="h-4 w-4 fill-primary-400" />
+              <Icons.Circle className="h-4 w-4 fill-primary-400" />
             </RadioGroupPrimitive.Indicator>
           </RadioGroupPrimitive.Item>
           {label}

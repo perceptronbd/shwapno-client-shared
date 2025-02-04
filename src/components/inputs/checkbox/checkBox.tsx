@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
 import { cn } from "../../../utils/cn";
+import { Icons } from "../../../icons/index";
 
 interface CheckboxProps
   extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
@@ -19,7 +19,7 @@ export const Checkbox = ({ className, asRef, ...props }: CheckboxProps) => (
     {...props}
   >
     <CheckboxPrimitive.Indicator className="flex items-center justify-center text-white">
-      <Check className="h-4 w-4" />
+      <Icons.Check className="h-4 w-4" />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 );
