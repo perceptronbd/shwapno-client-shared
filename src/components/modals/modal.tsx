@@ -2,14 +2,15 @@
 
 import { Icons } from "../../icons/index";
 import { Button } from "../buttons/button";
-import { FC, useEffect, useRef } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useRef } from "react";
 import { cn } from "../../utils/cn";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 type ModalProps = {
   className?: string;
   overlayClassName?: string;
   isOpen: boolean;
-  onClose: () => void;
+  onClose: Dispatch<SetStateAction<boolean>>;
   children: React.ReactNode;
   isCrossVisible?: boolean;
 };
@@ -25,6 +26,10 @@ export const Modal: FC<ModalProps> = ({
   const dialogRef = useRef<HTMLDialogElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
+  useClickOutside(overlayRef as React.RefObject<HTMLDivElement>, () =>
+    onClose(false)
+  );
+
   useEffect(() => {
     if (dialogRef.current) {
       if (isOpen) {
@@ -34,25 +39,6 @@ export const Modal: FC<ModalProps> = ({
       }
     }
   }, [isOpen]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        overlayRef.current &&
-        !overlayRef.current.contains(event.target as Node)
-      ) {
-        onClose();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, onClose]);
 
   return (
     <dialog
@@ -74,7 +60,7 @@ export const Modal: FC<ModalProps> = ({
         {children}
         {isCrossVisible && (
           <Button
-            onClick={onClose}
+            onClick={() => onClose(false)}
             className="absolute top-4 right-4 w-10 h-10 p-0 bg-neutral-100 hover:bg-neutral-300 rounded-full text-neutral-400"
             aria-label="Close Drawer"
           >
