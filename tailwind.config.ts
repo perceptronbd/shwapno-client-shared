@@ -7,6 +7,17 @@ const tailwindConfig: Config = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      borderRadius: {
+        xs: "0.4rem",
+        sm: "0.8rem",
+        base: "1.2rem",
+        md: "1.6rem",
+        lg: "2.0rem",
+        xl: "2.4rem",
+        "2xl": "2.8rem",
+        "3xl": "3.2rem",
+        full: "999rem",
+      },
       fontSize: customFontSizes,
       spacing: customSpacing,
       colors: {

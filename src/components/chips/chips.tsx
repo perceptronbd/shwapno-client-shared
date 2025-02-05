@@ -4,9 +4,11 @@ import { cn } from "../../utils/cn";
 import { Icons } from "../../icons/index";
 
 type Variant = keyof typeof chipsVariants;
+type rounded = keyof typeof roundedRadius;
 
 interface ChipsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
+  rounded: rounded;
   asChild?: boolean;
   className?: string;
   children?: React.ReactNode;
@@ -23,6 +25,13 @@ const chipsVariants = {
   disabled: { style: "bg-neutral-200 text-neutral-500", label: "Disabled" },
 };
 
+const roundedRadius = {
+  sm: "rounded-sm",
+  md: "rounded-md",
+  lg: "rounded-lg",
+  full: "rounded-full",
+};
+
 export const Chips: FC<ChipsProps> = ({
   className,
   children,
@@ -31,6 +40,7 @@ export const Chips: FC<ChipsProps> = ({
   asChild = false,
   dismissible = false,
   onDismiss,
+  rounded = "sm",
   ref,
   ...props
 }) => {
@@ -40,7 +50,8 @@ export const Chips: FC<ChipsProps> = ({
   return (
     <Comp
       className={cn(
-        "focus-visible:ring-ring inline-flex items-center justify-center gap-1 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal px-3 py-2 rounded-[0.8rem]",
+        "focus-visible:ring-ring inline-flex items-center justify-center gap-1 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal px-3 py-2",
+        roundedRadius[rounded],
         style,
         className
       )}

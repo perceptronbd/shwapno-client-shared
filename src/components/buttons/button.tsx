@@ -22,14 +22,14 @@ const buttonVariants = {
   primary:
     "bg-secondary-400 text-white hover:bg-secondary-500 disabled:bg-neutral-300",
   outline:
-    "border-secondary-400 text-secondary-400 hover:text-secondary-500 hover:border-secondary-500",
+    "border border-secondary-400 text-secondary-400 hover:text-secondary-500 hover:border-secondary-500",
 };
 
 const sizeVariants = {
-  sm: "py-2 px-3 rounded-sm",
-  md: "py-3 px-5 rounded-lg",
-  lg: "py-4 px-8 rounded-lg",
-  icon: "p-1 rounded-lg",
+  sm: "py-2 px-3 rounded-xs",
+  md: "py-3 px-5 rounded-sm",
+  lg: "py-4 px-8 rounded-sm",
+  icon: "p-1 rounded-xs",
 };
 
 export const Button: React.FC<ButtonProps> = ({
