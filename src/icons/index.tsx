@@ -1,10 +1,16 @@
 import {
+  AlertCircle,
   Check,
   ChevronDown,
   ChevronUp,
   Circle,
+  Eye,
+  EyeClosed,
+  EyeOffIcon,
+  Lock,
   LucideLoader2,
   LucideX,
+  Mail,
   X,
 } from "lucide-react";
 
@@ -16,4 +22,10 @@ export const Icons = {
   Circle,
   X,
   Check,
+  Lock,
+  Mail,
+  AlertCircle,
+  Eye,
+  EyeClosed,
+  EyeOffIcon,
 };
