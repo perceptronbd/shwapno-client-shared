@@ -18,6 +18,7 @@ export const Default: Story = {
     defaultChecked: false,
     name: "default-checkbox",
     value: "checked",
+    label: "Option 1",
   },
 };
 

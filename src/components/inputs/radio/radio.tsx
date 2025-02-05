@@ -35,7 +35,7 @@ export const Radio: React.FC<RadioProps> = ({
         <label
           key={value}
           className={cn(
-            "flex items-center gap-2 cursor-pointer",
+            "flex items-center gap-2 cursor-pointer text-xs md:text-base",
             disabled && "opacity-50 cursor-not-allowed"
           )}
         >
