@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { HtmlHTMLAttributes, FC } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utils/cn";
 import { Icons } from "../../icons/index";
@@ -12,7 +12,7 @@ interface ChipsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   dismissible?: boolean;
   ref?: React.ForwardedRef<HTMLButtonElement>;
-  onDismiss?: () => void;
+  onDismiss?: HtmlHTMLAttributes<SVGSVGElement>["onClick"];
 }
 
 const chipsVariants = {

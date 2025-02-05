@@ -18,7 +18,7 @@ export const Input: FC<InputProps> = ({
       {...props}
       ref={ref}
       className={cn(
-        "border text-black py-3 px-4 w-full text-base  placeholder-bold rounded-2xl placeholder:text-base",
+        "border text-primary-400 border-primary-100 focus:outline-primary-200  py-3 px-4 w-full text-base  placeholder-bold rounded-2xl placeholder:text-base",
         className,
         inputStyle
       )}
