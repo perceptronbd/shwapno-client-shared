@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useDropdownPositionAdjustment } from "../../hooks/useDropdownPositionAdjustment";
-import { Input } from "../inputs/Input/input";
-import { Chips } from "../chips/chips";
-import { Text } from "../texts/text";
-import { Icons } from "../../Icons";
-import { cn } from "../../utils/cn";
-import { Checkbox } from "../inputs/checkbox/checkBox";
+import { useDropdownPositionAdjustment } from "../../../hooks/useDropdownPositionAdjustment";
+import { Input } from "../input/input";
+import { Chips } from "../../chips/chips";
+import { Text } from "../../texts/text";
+import { Icons } from "../../../Icons/index";
+import { cn } from "../../../utils/cn";
+import { Checkbox } from "../checkbox/checkBox";
 
 export type Option = {
   label: string;

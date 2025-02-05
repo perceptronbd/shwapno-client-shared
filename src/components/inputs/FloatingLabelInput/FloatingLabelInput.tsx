@@ -2,7 +2,7 @@
 
 import React, { ForwardedRef, InputHTMLAttributes, JSX, useState } from "react";
 import { cn } from "../../../utils/cn";
-import { Icons } from "../../../icons/index";
+import { Icons } from "../../../Icons/index";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;

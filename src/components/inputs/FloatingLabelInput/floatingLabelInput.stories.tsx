@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { FloatingLabelInput } from "./floatingLabelInput";
-import { Icons } from "../../../icons/index";
+import { Icons } from "../../../Icons/index";
 
 const meta: Meta<typeof FloatingLabelInput> = {
   title: "Components/FloatingLabelInput",

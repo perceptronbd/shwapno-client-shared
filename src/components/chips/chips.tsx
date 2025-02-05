@@ -1,14 +1,14 @@
 import React, { HtmlHTMLAttributes, FC } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utils/cn";
-import { Icons } from "../../icons/index";
+import { Icons } from "../../Icons/index";
 
 type Variant = keyof typeof chipsVariants;
 type rounded = keyof typeof roundedRadius;
 
 interface ChipsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
-  rounded: rounded;
+  rounded?: rounded;
   asChild?: boolean;
   className?: string;
   children?: React.ReactNode;

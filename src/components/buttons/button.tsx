@@ -1,6 +1,6 @@
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { Icons } from "../../icons/index";
+import { Icons } from "../../Icons/index";
 
 import { cn } from "../../utils/cn";
 
