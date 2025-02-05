@@ -1,19 +1,26 @@
 "use client";
 
+import { Icons } from "../../icons/index";
+import { Button } from "../buttons/button";
 import { FC, useEffect, useRef } from "react";
+import { cn } from "../../utils/cn";
 
 type ModalProps = {
   className?: string;
+  overlayClassName?: string;
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  isCrossVisible?: boolean;
 };
 
 export const Modal: FC<ModalProps> = ({
+  overlayClassName = "",
   className = "",
   isOpen,
   onClose,
   children,
+  isCrossVisible = true,
 }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -50,22 +57,30 @@ export const Modal: FC<ModalProps> = ({
   return (
     <dialog
       ref={dialogRef}
-      className={`fixed inset-0 flex h-screen w-full items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm transition-transform duration-300 ${
-        isOpen ? "scale-100" : "hidden scale-50"
-      } ${className}`}
+      className={cn(
+        "fixed inset-0 flex h-screen w-full items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm transition-transform duration-300",
+        isOpen ? "scale-100" : "hidden scale-50",
+        className
+      )}
       onClick={(e) => e.stopPropagation()}
     >
       <div
         ref={overlayRef}
-        className="relative mx-auto flex w-full max-w-lg justify-center bg-white shadow-lg rounded-lg p-4"
+        className={cn(
+          "relative mx-auto flex w-full max-w-lg justify-center bg-white shadow-lg rounded-sm p-4",
+          overlayClassName
+        )}
       >
         {children}
-        <button
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-          onClick={onClose}
-        >
-          &times;
-        </button>
+        {isCrossVisible && (
+          <Button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-10 h-10 p-0 bg-neutral-100 hover:bg-neutral-300 rounded-full text-neutral-400"
+            aria-label="Close Drawer"
+          >
+            <Icons.X size={22} />
+          </Button>
+        )}
       </div>
     </dialog>
   );

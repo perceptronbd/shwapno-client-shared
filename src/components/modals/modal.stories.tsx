@@ -20,8 +20,12 @@ export const Default: Story = {
     return (
       <>
         <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
-        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-          <div className="p-4">
+        <Modal
+          isCrossVisible={false}
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+        >
+          <div className="p-4 bg-blue-400 w-full">
             <h2 className="text-lg font-semibold">Modal Title</h2>
             <p className="mt-2">This is a sample modal content.</p>
           </div>

@@ -53,7 +53,7 @@ export const FloatingLabelInput: React.FC<InputProps> = React.forwardRef(
             autoComplete="off"
             {...props}
             className={cn(
-              "peer block min-w-60 rounded-2xl border pr-4  py-3 pl-10 text-primary-400 placeholder:text-transparent focus:border-none focus:text-primary-400 focus:outline-primary-400 focus:ring-1 h-full focus:text-base",
+              "peer block min-w-60 rounded-base border pr-4  py-3 pl-10 text-primary-400 placeholder:text-transparent focus:border-none focus:text-primary-400 focus:outline-primary-400 focus:ring-1 h-full focus:text-base",
               errorMessage ? "border-red-500" : "border-neutral-200",
               isIcon ? "pl-12" : "pl-3",
               className
@@ -91,7 +91,7 @@ export const FloatingLabelInput: React.FC<InputProps> = React.forwardRef(
           )}
 
           {errorMessage && (
-            <span className="mt-2 block w-full gap-2 rounded-full bg-red-200 px-1 py-0.5 text-xs text-red-500">
+            <span className="mt-2 block w-full gap-2 rounded-sm bg-red-200 px-4 py-2 text-xs text-red-500">
               <div className="flex items-center gap-2">
                 <Icons.AlertCircle size={15} className="text-red-500" />
                 {errorMessage}

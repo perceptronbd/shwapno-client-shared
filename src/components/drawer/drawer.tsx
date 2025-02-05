@@ -2,15 +2,21 @@
 
 import { ReactNode, useEffect } from "react";
 import { Button } from "../buttons/button";
-import { X } from "lucide-react";
+import { Icons } from "../../icons/index";
 
 interface DrawerProps {
   isOpen: boolean;
   onClose: () => void;
   children?: ReactNode;
+  isCrossVisible?: boolean;
 }
 
-export const Drawer = ({ isOpen, onClose, children }: DrawerProps) => {
+export const Drawer = ({
+  isOpen,
+  onClose,
+  children,
+  isCrossVisible = true,
+}: DrawerProps) => {
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -38,17 +44,19 @@ export const Drawer = ({ isOpen, onClose, children }: DrawerProps) => {
       }`}
     >
       <div
-        className={`relative w-full h-[80%] bg-neutral-50 py-6 px-8 shadow-lg transform transition-transform duration-300 rounded-t-[2.4rem] ${
+        className={`relative w-full h-[80%] bg-neutral-50 py-6 px-8 shadow-lg transform transition-transform duration-300 rounded-t-xl ${
           isOpen ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <Button
-          onClick={onClose}
-          className="absolute top-4 right-4 w-10 h-10 p-0 bg-neutral-100 hover:bg-neutral-300 rounded-full text-neutral-400"
-          aria-label="Close Drawer"
-        >
-          <X size={22} />
-        </Button>
+        {isCrossVisible && (
+          <Button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-10 h-10 p-0 bg-neutral-100 hover:bg-neutral-300 rounded-full text-neutral-400"
+            aria-label="Close Drawer"
+          >
+            <Icons.X size={22} />
+          </Button>
+        )}
         {children}
       </div>
     </div>
