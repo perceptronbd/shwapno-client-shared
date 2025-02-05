@@ -18,8 +18,8 @@ const meta: Meta<typeof MultiSelectInput> = {
     onChange: { action: "changed" },
   },
   args: {
-    className: "w-96",
-    dropdownClassName: "w-96",
+    className: "w-full",
+    dropdownClassName: "w-full",
     options: [
       { label: "Times Square", value: "times_square" },
       { label: "Grand Central", value: "grand_central" },

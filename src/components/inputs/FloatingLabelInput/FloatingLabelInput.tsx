@@ -27,8 +27,8 @@ export const FloatingLabelInput: React.FC<InputProps> = React.forwardRef(
     },
     ref: ForwardedRef<HTMLInputElement>
   ) => {
-    const [isFocused, setIsFocused] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
+    const [isFocused, setIsFocused] = useState<boolean>(false);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const inputType = type === "password" && showPassword ? "text" : type;
 

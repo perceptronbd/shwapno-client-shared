@@ -16,7 +16,7 @@ type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
   render: () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
     return (
       <>
         <Button onClick={() => setIsOpen(true)}>Open Modal</Button>

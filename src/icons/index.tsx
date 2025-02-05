@@ -11,6 +11,7 @@ import {
   LucideLoader2,
   LucideX,
   Mail,
+  TextCursor,
   X,
 } from "lucide-react";
 
@@ -28,4 +29,5 @@ export const Icons = {
   Eye,
   EyeClosed,
   EyeOffIcon,
+  TextCursor,
 };

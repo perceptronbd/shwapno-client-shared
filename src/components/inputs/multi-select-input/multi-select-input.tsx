@@ -46,16 +46,24 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
   icon = <Icons.ChevronDown />,
 }) => {
   const [selectedValues, setSelectedValues] = useState<string[]>(value);
+  const [showAllChips, setShowAllChips] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const { containerRef, dropdownRef, isOpen, setIsOpen, dropdownPosition } =
     useDropdownPositionAdjustment();
 
-  // Sync with controlled value
+  const displayedChips = showAllChips
+    ? selectedValues
+    : selectedValues.slice(0, 3);
+
   useEffect(() => {
-    if (value !== selectedValues) {
-      setSelectedValues(value);
-    }
+    setSelectedValues(value);
   }, [value]);
+
+  useEffect(() => {
+    if (selectedValues.length <= 3) {
+      setShowAllChips(false);
+    }
+  }, [selectedValues.length]);
 
   const handleToggleDropdown = () => {
     if (!disabled) setIsOpen(!isOpen);
@@ -99,6 +107,11 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
   const getOptionLabel = (value: string) =>
     options.find((opt) => opt.value === value)?.label ?? value;
 
+  const handleToggleChipsVisibility = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setShowAllChips(!showAllChips);
+  };
+
   return (
     <div className="relative w-full" ref={containerRef}>
       {/* Trigger Area */}
@@ -106,7 +119,7 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
         role="button"
         tabIndex={0}
         className={cn(
-          "flex flex-wrap items-center gap-2 border-2 px-4 py-3 rounded-2xl transition-all duration-300 ease-in-out",
+          "flex flex-wrap items-center gap-2 border-2 px-4 py-3 rounded-base transition-all duration-300 ease-in-out",
           error ? "border-error-500" : "border-primary-200",
           disabled ? "bg-neutral-100 cursor-not-allowed" : "bg-white",
           isOpen && !error && "border-primary-500",
@@ -116,7 +129,7 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
         onKeyDown={(e) => e.key === "Enter" && handleToggleDropdown()}
         aria-disabled={disabled}
       >
-        {selectedValues.map((value) => (
+        {displayedChips.map((value) => (
           <Chips
             key={value}
             dismissible={!disabled}
@@ -130,13 +143,42 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
           </Chips>
         ))}
 
+        {selectedValues.length > 3 && (
+          <Chips
+            className={cn(
+              "cursor-pointer bg-primary-400 text-white",
+              chipClassName
+            )}
+            onClick={handleToggleChipsVisibility}
+            dismissible={false}
+          >
+            {showAllChips ? "Show less" : `+${selectedValues.length - 3} more`}
+          </Chips>
+        )}
+
         {selectedValues.length === 0 && (
           <Text variant="bodySmall" className="text-neutral-300">
             {placeholder}
           </Text>
         )}
 
-        <div className="ml-auto">{icon}</div>
+        <div className="ml-auto flex items-center gap-2">
+          {selectedValues.length > 0 && (
+            <div
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedValues([]);
+              }}
+              className="w-full h-full border-r-2 border-primary-400 p-2 flex items-center justify-center"
+            >
+              <Icons.X
+                size={16}
+                className="bg-primary-400 text-white rounded-full"
+              />
+            </div>
+          )}
+          {icon}
+        </div>
       </div>
 
       {errorMessage && (
