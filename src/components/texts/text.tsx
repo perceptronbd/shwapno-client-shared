@@ -9,13 +9,15 @@ type Variant =
   | "titleLarge"
   | "titleMedium"
   | "titleSmall"
-  | "bodyXlarge"
   | "bodyLarge"
   | "bodyMedium"
+  | "bodyBase"
   | "bodySmall"
-  | "bodyXsmall";
+  | "bodyXSmall"
+  | "body2XSmall"
+  | "body3XSmall";
 
-type Weight = "bold" | "normal" | "thin";
+type Weight = "bold" | "semi_bold" | "medium" | "normal" | "thin";
 
 interface TextProps {
   variant?: Variant;
@@ -38,32 +40,36 @@ export const Text: React.FC<TextProps> = ({
   > = {
     display: {
       element: "h1",
-      styles: "text-4xl md:text-5xl lg:text-7xl ",
+      styles: "text-9xl",
     },
     headerLarge: {
       element: "h1",
-      styles: "text-4xl md:text-5xl lg:text-6xl ",
+      styles: "text-5xl md:text-8xl lg:text-9xl ",
     },
     headerMedium: {
       element: "h2",
-      styles: "text-3xl md:text-[44px] lg:text-[48px] ",
+      styles: "text-4xl md:text-6xl lg:text-7xl ",
     },
     headerSmall: {
       element: "h3",
-      styles: "text-2xl md:text-3xl lg:text-4xl ",
+      styles: "text-3xl md:text-4xl lg:text-5xl ",
     },
-    titleLarge: { element: "h4", styles: "text-lg md:text-xl lg:text-2xl" },
+    titleLarge: { element: "h4", styles: "text-xl md:text-2xl lg:text-3xl" },
     titleMedium: { element: "h5", styles: "text-md md:text-lg" },
-    titleSmall: { element: "h6", styles: "text-[18px] md:text-md" },
-    bodyXlarge: { element: "p", styles: "text-lg" },
-    bodyLarge: { element: "p", styles: "text-lg " },
-    bodyMedium: { element: "p", styles: "text-base" },
+    titleSmall: { element: "h6", styles: "text-lg md:text-xl" },
+    bodyLarge: { element: "p", styles: "text-lg" },
+    bodyMedium: { element: "p", styles: "text-md" },
+    bodyBase: { element: "p", styles: "text-base" },
     bodySmall: { element: "p", styles: "text-sm" },
-    bodyXsmall: { element: "p", styles: "text-xs" },
+    bodyXSmall: { element: "p", styles: "text-xs" },
+    body2XSmall: { element: "p", styles: "text-2xs" },
+    body3XSmall: { element: "p", styles: "text-3xs" },
   };
 
   const weightMap: Record<Weight, string> = {
-    bold: "font-semibold",
+    bold: "font-bold",
+    semi_bold: "font-semibold",
+    medium: "font-medium",
     normal: "font-normal",
     thin: "font-thin",
   };
@@ -76,7 +82,7 @@ export const Text: React.FC<TextProps> = ({
 
   return (
     <Element
-      className={cn(`leading-6 ${styles} ${weightStyle} ${className}`)}
+      className={cn(`leading-6  ${styles} ${weightStyle} ${className}`)}
       style={style}
     >
       {children}
