@@ -2,17 +2,13 @@ import * as React from "react";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
 import { cn } from "../../utils/cn";
 
-interface SwitchProps {
-  checked: boolean;
-  onCheckedChange: (checked: boolean) => void;
+interface SwitchProps extends SwitchPrimitive.SwitchProps {
   className?: string;
   thumbClassName?: string;
   disabled?: boolean;
 }
 
 export const Switch: React.FC<SwitchProps> = ({
-  checked,
-  onCheckedChange,
   className,
   thumbClassName,
   disabled,
@@ -24,8 +20,6 @@ export const Switch: React.FC<SwitchProps> = ({
       className
     )}
     disabled={disabled}
-    checked={checked}
-    onCheckedChange={onCheckedChange}
     {...props}
   >
     <SwitchPrimitive.Thumb
