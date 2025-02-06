@@ -1,55 +1,39 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import * as React from "react";
+import * as SwitchPrimitive from "@radix-ui/react-switch";
 import { cn } from "../../utils/cn";
 
-type Variant = keyof typeof variants.container;
-
-const variants = {
-  container: {
-    active: "border-primary-400",
-    inActive: "border-primary-400",
-    inactiveDisabled: "border-primary-200",
-    activeDisabled: "border-primary-200",
-  },
-  ball: {
-    active: "bg-primary-400",
-    inActive: "bg-primary-400",
-    inactiveDisabled: "bg-primary-200",
-    activeDisabled: "bg-primary-200",
-  },
-} as const;
-
 interface SwitchProps {
-  type?: Variant;
-  containerClass?: string;
-  ballClass?: string;
-  isToggled: boolean;
-  setIsToggled: Dispatch<SetStateAction<boolean>>;
+  checked: boolean;
+  onCheckedChange: (checked: boolean) => void;
+  className?: string;
+  thumbClassName?: string;
+  disabled?: boolean;
 }
 
-export const Switch: FC<SwitchProps> = ({
-  type = "active",
-  containerClass,
-  ballClass,
-  isToggled,
-  setIsToggled,
-}) => {
-  return (
-    <div
+export const Switch: React.FC<SwitchProps> = ({
+  checked,
+  onCheckedChange,
+  className,
+  thumbClassName,
+  disabled,
+  ...props
+}) => (
+  <SwitchPrimitive.Root
+    className={cn(
+      "relative h-6 w-10 cursor-pointer rounded-full border-2 border-primary-400 data-[state=checked]:bg-primary-400 disabled:cursor-not-allowed disabled:border-primary-200 disabled:data-[state=checked]:bg-neutral-300",
+      className
+    )}
+    disabled={disabled}
+    checked={checked}
+    onCheckedChange={onCheckedChange}
+    {...props}
+  >
+    <SwitchPrimitive.Thumb
       className={cn(
-        "transition-colors cursor-pointer duration-500 rounded-[12px] relative border-[2px] w-10 h-6",
-        variants.container[type],
-        isToggled && variants.ball[`${type}`],
-        containerClass
+        "block size-5 translate-x-0.5 rounded-full transition-transform duration-300 will-change-transform bg-white data-[state=checked]:bg-white data-[state=checked]:translate-x-4 shadow-[1px_2px_5px_2px_rgba(0,0,0,0.1)] disabled:data-[state=checked]:bg-neutral-300",
+
+        thumbClassName
       )}
-      onClick={() => setIsToggled(!isToggled)}
-    >
-      <div
-        className={cn(
-          "transition-all absolute duration-500 rounded-full bg-neutral-50 shadow-[1px_2px_5px_2px_rgba(0,0,0,0.1)] size-5 left-0",
-          isToggled && ` left-full -translate-x-full`,
-          ballClass
-        )}
-      />
-    </div>
-  );
-};
+    />
+  </SwitchPrimitive.Root>
+);

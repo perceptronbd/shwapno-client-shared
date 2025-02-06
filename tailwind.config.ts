@@ -7,6 +7,9 @@ const tailwindConfig: Config = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      boxShadow: {
+        switch: "1px_2px_5px_2px_rgba(0,0,0,0.1)",
+      },
       borderRadius: {
         xs: "0.4rem",
         sm: "0.8rem",
