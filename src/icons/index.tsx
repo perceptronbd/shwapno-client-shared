@@ -7,6 +7,7 @@ import {
   Eye,
   EyeClosed,
   EyeOffIcon,
+  Loader,
   Lock,
   LucideLoader2,
   LucideX,
@@ -30,4 +31,5 @@ export const Icons = {
   EyeClosed,
   EyeOffIcon,
   TextCursor,
+  Loader,
 };

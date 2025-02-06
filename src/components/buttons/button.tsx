@@ -23,12 +23,14 @@ const buttonVariants = {
     "bg-secondary-400 text-white hover:bg-secondary-500 disabled:bg-neutral-300",
   outline:
     "border border-secondary-400 text-secondary-400 hover:text-secondary-500 hover:border-secondary-500",
+  link: "text-secondary-400 hover:text-secondary-500 hover:underline",
+  text: "text-secondary-400 hover:text-secondary-500",
 };
 
 const sizeVariants = {
-  sm: "py-2 px-3 rounded-xs",
-  md: "py-3 px-5 rounded-sm",
-  lg: "py-4 px-8 rounded-sm",
+  sm: "py-2 px-3 rounded-xs text-xs",
+  md: "py-3 px-5 rounded-sm text-sm",
+  lg: "py-4 px-8 rounded-sm text-base",
   icon: "p-1 rounded-xs",
 };
 
@@ -48,19 +50,20 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <Comp
       className={cn(
-        "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-xs md:text-sm lg:text-base font-medium cursor-pointer",
+        "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  font-medium cursor-pointer",
         buttonVariants[variant],
         sizeVariants[size],
         className
       )}
-      disabled={disabled || loading}
+      disabled={disabled}
+      data-loading={loading}
       ref={ref as React.Ref<HTMLButtonElement>}
       {...props}
     >
       {loading ? (
         <>
           <div className="flex h-4 w-4 animate-spin items-center justify-center rounded-full">
-            <Icons.LucideLoader2 />
+            <Icons.Loader />
           </div>
           {children && <span>{children}</span>}
         </>
