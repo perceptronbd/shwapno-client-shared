@@ -6,6 +6,7 @@ import { Text } from "../../texts/text";
 import { Icons } from "../../../Icons/index";
 import { cn } from "../../../utils/cn";
 import { Checkbox } from "../checkbox/checkBox";
+import isEqual from "../../../utils/isEqual";
 
 export type Option = {
   label: string;
@@ -57,7 +58,7 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
 
   // Update selectedValues only when value has changed
   useEffect(() => {
-    if (JSON.stringify(selectedValues) !== JSON.stringify(value)) {
+    if (isEqual(value, selectedValues)) {
       setSelectedValues(value);
     }
   }, [value, selectedValues]);
