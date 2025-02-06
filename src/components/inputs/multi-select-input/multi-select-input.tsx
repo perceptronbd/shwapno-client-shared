@@ -55,9 +55,12 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
     ? selectedValues
     : selectedValues.slice(0, 3);
 
+  // Update selectedValues only when value has changed
   useEffect(() => {
-    setSelectedValues(value);
-  }, [value]);
+    if (JSON.stringify(selectedValues) !== JSON.stringify(value)) {
+      setSelectedValues(value);
+    }
+  }, [value, selectedValues]);
 
   useEffect(() => {
     if (selectedValues.length <= 3) {
@@ -98,7 +101,7 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
     const allSelected = filteredValues.every((v) => selectedValues.includes(v));
     const newValues = allSelected
       ? selectedValues.filter((v) => !filteredValues.includes(v))
-      : Array.from(new Set([...selectedValues, ...filteredValues]));
+      : [...new Set([...selectedValues, ...filteredValues])];
 
     setSelectedValues(newValues);
     onChange?.(newValues);
@@ -132,8 +135,8 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
         {displayedChips.map((value) => (
           <Chips
             key={value}
-            dismissible={!disabled}
-            onDismiss={(e) => {
+            close={!disabled}
+            onClose={(e) => {
               e.stopPropagation();
               handleRemoveTag(value);
             }}
@@ -150,7 +153,7 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
               chipClassName
             )}
             onClick={handleToggleChipsVisibility}
-            dismissible={false}
+            close={false}
           >
             {showAllChips ? "Show less" : `+${selectedValues.length - 3} more`}
           </Chips>
@@ -168,6 +171,7 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedValues([]);
+                onChange?.([]);
               }}
               className="w-full h-full border-r-2 border-primary-400 p-2 flex items-center justify-center"
             >
