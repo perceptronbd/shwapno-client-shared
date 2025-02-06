@@ -6,7 +6,7 @@ const fs = require("fs");
 const packageJsonPath = path.resolve(__dirname, "./package.json");
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
 
-const peerDependencies = packageJson.peerDependencies || {};
+const dependencies = packageJson.dependencies || {};
 
 const installDependency = (dep, versionRange) => {
   try {
@@ -21,8 +21,8 @@ const installDependency = (dep, versionRange) => {
   }
 };
 
-Object.keys(peerDependencies).forEach((dep) => {
-  const versionRanges = peerDependencies[dep].split(" || ");
+Object.keys(dependencies).forEach((dep) => {
+  const versionRanges = dependencies[dep].split(" || ");
   const secondVersionRange = versionRanges[1];
   const firstVersionRange = versionRanges[0];
 
@@ -40,4 +40,4 @@ Object.keys(peerDependencies).forEach((dep) => {
   }
 });
 
-console.log("Peer dependencies installation complete.");
+console.log("Shared dependencies installation complete.");

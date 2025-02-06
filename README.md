@@ -33,10 +33,11 @@ npm run update-submodule
 
 ```json
 {
-  "install-shared-peerdeps": "node src/shared-components/install-peer-deps.cjs",
-  "postinstall": "npm run install-shared-peerdeps"
+  "install-shared-deps": "node src/shared-components/install-deps.cjs && node src/shared-components/install-dev-deps.cjs",
+  "postinstall": "npm run install-shared-deps"
 }
 ```
+
 
 **tailwind.config.ts:** copy & paste
 
