@@ -61,10 +61,10 @@ export const Modal: FC<ModalProps> = ({
         {isCrossVisible && (
           <Button
             onClick={() => onClose(false)}
-            className="absolute top-4 right-4 w-10 h-10 p-0 bg-neutral-100 hover:bg-neutral-300 rounded-full text-neutral-400"
+            className="absolute top-4 right-4 p-2 bg-neutral-100 hover:bg-neutral-300 rounded-full text-neutral-400"
             aria-label="Close Drawer"
           >
-            <Icons.X size={22} />
+            <Icons.X size={16} />
           </Button>
         )}
       </div>

@@ -12,9 +12,9 @@ interface ChipsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean;
   className?: string;
   children?: React.ReactNode;
-  dismissible?: boolean;
+  close?: boolean;
   ref?: React.ForwardedRef<HTMLButtonElement>;
-  onDismiss?: HtmlHTMLAttributes<SVGSVGElement>["onClick"];
+  onClose?: HtmlHTMLAttributes<SVGSVGElement>["onClick"];
 }
 
 const chipsVariants = {
@@ -38,8 +38,8 @@ export const Chips: FC<ChipsProps> = ({
   variant = "primary",
   disabled = false,
   asChild = false,
-  dismissible = false,
-  onDismiss,
+  close = false,
+  onClose,
   rounded = "sm",
   ref,
   ...props
@@ -59,8 +59,8 @@ export const Chips: FC<ChipsProps> = ({
       {...props}
     >
       {children || label}
-      {dismissible && (
-        <Icons.LucideX onClick={onDismiss} aria-label="Dismiss" size={14} />
+      {close && (
+        <Icons.LucideX onClick={onClose} aria-label="Dismiss" size={14} />
       )}
     </Comp>
   );
