@@ -58,7 +58,7 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
 
   // Update selectedValues only when value has changed
   useEffect(() => {
-    if (isEqual(value, selectedValues)) {
+    if (!isEqual(selectedValues, value)) {
       setSelectedValues(value);
     }
   }, [value, selectedValues]);
