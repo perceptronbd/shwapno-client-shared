@@ -16,7 +16,7 @@ git submodule add https://github.com/perceptronbd/shwapno-client-shared.git src/
 
 ```json
 {
-  "update-submodule": "node src/shared-components/update-submodule.cjs"
+  "update-submodule": "node src/shared-components/setup/update-submodule.cjs"
 }
 ```
 
@@ -33,11 +33,10 @@ npm run update-submodule
 
 ```json
 {
-  "install-shared-deps": "node src/shared-components/install-deps.cjs && node src/shared-components/install-dev-deps.cjs",
+  "install-shared-deps": "node src/shared-components/setup/install-deps.cjs && node src/shared-components/setup/install-dev-deps.cjs",
   "postinstall": "npm run install-shared-deps"
 }
 ```
-
 
 **tailwind.config.ts:** copy & paste
 
