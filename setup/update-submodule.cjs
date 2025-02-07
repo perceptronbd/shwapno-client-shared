@@ -10,7 +10,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("Enter the tag version (e.g., v1.0.0): ", (tagVersion) => {
+rl.question("Enter the tag version (e.g., 1.0.0): ", (tagVersion) => {
   if (!tagVersion) {
     tagVersion = packageJson.version;
     console.log(
