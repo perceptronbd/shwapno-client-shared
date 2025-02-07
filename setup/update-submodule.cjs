@@ -2,8 +2,10 @@
 const { execSync } = require("child_process");
 const readline = require("readline");
 const fs = require("fs");
+const path = require("path");
 
-const packageJson = JSON.parse(fs.readFileSync("package.json", "utf8"));
+const packageJsonPath = path.resolve(__dirname, "../package.json");
+const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
 
 const rl = readline.createInterface({
   input: process.stdin,
