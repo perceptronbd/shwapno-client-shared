@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "../../Icons/index";
+import { Icons } from "../../icons/index";
 import { Button } from "../buttons/button";
 import { Dispatch, FC, SetStateAction, useEffect, useRef } from "react";
 import { cn } from "../../utils/cn";
