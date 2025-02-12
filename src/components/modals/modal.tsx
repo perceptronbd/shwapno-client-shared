@@ -2,7 +2,7 @@
 
 import { Icons } from "../../icons/index";
 import { Button } from "../buttons/button";
-import { Dispatch, FC, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import { cn } from "../../utils/cn";
 import { useClickOutside } from "../../hooks/useClickOutside";
 
@@ -15,14 +15,14 @@ type ModalProps = {
   isCrossVisible?: boolean;
 };
 
-export const Modal: FC<ModalProps> = ({
+export const Modal = ({
   overlayClassName = "",
   className = "",
   isOpen,
   onClose,
   children,
   isCrossVisible = true,
-}) => {
+}: ModalProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
