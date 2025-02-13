@@ -27,13 +27,13 @@ interface TextProps {
   style?: React.CSSProperties;
 }
 
-export const Text: React.FC<TextProps> = ({
+export const Text = ({
   variant = "bodyMedium",
   weight = "normal",
   children,
   className,
   style,
-}) => {
+}: TextProps) => {
   const variantMap: Record<
     Variant,
     { element: keyof JSX.IntrinsicElements; styles: string }

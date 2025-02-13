@@ -3,7 +3,7 @@ import { useDropdownPositionAdjustment } from "../../../hooks/useDropdownPositio
 import { Input } from "../input/input";
 import { Chips } from "../../chips/chips";
 import { Text } from "../../texts/text";
-import { Icons } from "../../../Icons/index";
+import { Icons } from "../../../icons/index";
 import { cn } from "../../../utils/cn";
 import { Checkbox } from "../checkbox/checkBox";
 import isEqual from "../../../utils/isEqual";
@@ -15,8 +15,8 @@ export type Option = {
 
 interface MultiSelectInputProps {
   options: Option[];
-  value?: string[];
-  onChange?: (selectedValues: string[]) => void;
+  value: string[];
+  onChange: (selectedValues: string[]) => void;
   placeholder?: string;
   selectAllText?: string;
   showSearch?: boolean;
@@ -30,7 +30,7 @@ interface MultiSelectInputProps {
   icon?: React.ReactNode;
 }
 
-const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
+const MultiSelectInput = ({
   options = [],
   value = [],
   onChange,
@@ -45,7 +45,7 @@ const MultiSelectInput: React.FC<MultiSelectInputProps> = ({
   error = false,
   errorMessage,
   icon = <Icons.ChevronDown />,
-}) => {
+}: MultiSelectInputProps) => {
   const [selectedValues, setSelectedValues] = useState<string[]>(value);
   const [showAllChips, setShowAllChips] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
