@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { cn } from "../../../utils/cn";
-import { Icons } from "../../../Icons/index";
+import { Icons } from "../../../icons/index";
 
 interface RadioOption {
   label: string;
@@ -19,12 +19,7 @@ interface RadioProps
   className?: string;
 }
 
-export const Radio: React.FC<RadioProps> = ({
-  options,
-  name,
-  className,
-  ...props
-}) => {
+export const Radio = ({ options, name, className, ...props }: RadioProps) => {
   return (
     <RadioGroupPrimitive.Root
       className={cn("flex flex-col gap-2", className)}

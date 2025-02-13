@@ -1,21 +1,17 @@
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { Icons } from "../../Icons/index";
+import { Icons } from "../../icons";
 
 import { cn } from "../../utils/cn";
 
 type Variant = keyof typeof buttonVariants;
 type Size = keyof typeof sizeVariants;
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ComponentPropsWithRef<"button"> {
   variant?: Variant;
   size?: Size;
-  disabled?: boolean;
   loading?: boolean;
   asChild?: boolean;
-  className?: string;
-  ref?: React.ForwardedRef<HTMLButtonElement>;
-  children?: React.ReactNode;
 }
 
 const buttonVariants = {
@@ -34,17 +30,15 @@ const sizeVariants = {
   icon: "p-1 rounded-xs",
 };
 
-export const Button: React.FC<ButtonProps> = ({
-  className,
+export const Button = ({
   variant = "primary",
-  disabled = false,
+  className,
   loading = false,
   size = "md",
   asChild = false,
   children,
-  ref,
   ...props
-}) => {
+}: ButtonProps) => {
   const Comp = asChild ? Slot : "button";
 
   return (
@@ -55,9 +49,7 @@ export const Button: React.FC<ButtonProps> = ({
         sizeVariants[size],
         className
       )}
-      disabled={disabled}
       data-loading={loading}
-      ref={ref as React.Ref<HTMLButtonElement>}
       {...props}
     >
       {loading ? (

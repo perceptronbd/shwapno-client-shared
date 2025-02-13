@@ -8,12 +8,12 @@ interface SwitchProps extends SwitchPrimitive.SwitchProps {
   disabled?: boolean;
 }
 
-export const Switch: React.FC<SwitchProps> = ({
+export const Switch = ({
   className,
   thumbClassName,
   disabled,
   ...props
-}) => (
+}: SwitchProps) => (
   <SwitchPrimitive.Root
     className={cn(
       "relative h-6 w-10 cursor-pointer rounded-full border-2 border-primary-400 data-[state=checked]:bg-primary-400 disabled:cursor-not-allowed disabled:border-primary-200 disabled:data-[state=checked]:bg-neutral-300",

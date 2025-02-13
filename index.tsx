@@ -13,6 +13,9 @@ export { Drawer } from "./src/components/drawer/drawer";
 export { Switch } from "./src/components/switch/switch";
 export { Toaster } from "./src/components/toaster/toaster";
 
+// export multiple exports from a single file
+export * from "./src/components/table/table";
+
 // utils
 export { cn } from "./src/utils/cn";
 export { customFontSizes } from "./src/utils/customFontSize";
@@ -22,7 +25,7 @@ export { customSpacing } from "./src/utils/customSpacing";
 export { useDropdownPositionAdjustment } from "./src/hooks/useDropdownPositionAdjustment";
 
 // icons
-export { Icons } from "./src/Icons";
+export { Icons } from "./src/icons";
 
 //types
 
