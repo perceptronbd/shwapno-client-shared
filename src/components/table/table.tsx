@@ -1,24 +1,23 @@
-import * as React from "react";
 import { cn } from "../../utils/cn";
 
 // Type definitions
-interface TableProps extends React.ComponentPropsWithRef<"table"> {}
+type TableProps = React.ComponentPropsWithRef<"table">;
 
-interface TableHeaderProps extends React.ComponentPropsWithRef<"thead"> {}
+type TableHeaderProps = React.ComponentPropsWithRef<"thead">;
 
-interface TableBodyProps extends React.ComponentPropsWithRef<"tbody"> {}
+type TableBodyProps = React.ComponentPropsWithRef<"tbody">;
 
-interface TableFooterProps extends React.ComponentPropsWithRef<"tfoot"> {}
+type TableFooterProps = React.ComponentPropsWithRef<"tfoot">;
 
-interface TableRowProps extends React.ComponentPropsWithRef<"tr"> {
+type TableRowProps = React.ComponentPropsWithRef<"tr"> & {
   "data-state"?: "selected";
-}
+};
 
-interface TableHeadProps extends React.ComponentPropsWithRef<"th"> {}
+type TableHeadProps = React.ComponentPropsWithRef<"th">;
 
-interface TableCellProps extends React.ComponentPropsWithRef<"td"> {}
+type TableCellProps = React.ComponentPropsWithRef<"td">;
 
-interface TableCaptionProps extends React.ComponentPropsWithRef<"caption"> {}
+type TableCaptionProps = React.ComponentPropsWithRef<"caption">;
 
 const Table = ({ className, ...props }: TableProps) => (
   <div className="relative w-full overflow-auto">
