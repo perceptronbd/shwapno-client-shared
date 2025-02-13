@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 import { Button } from "../buttons/button";
-import { Icons } from "../../Icons/index";
+import { Icons } from "../../icons/index";
 
 interface DrawerProps {
   isOpen: boolean;

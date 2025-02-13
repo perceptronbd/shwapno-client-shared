@@ -1,19 +1,16 @@
-import React, { HtmlHTMLAttributes, FC } from "react";
+import React, { HtmlHTMLAttributes } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utils/cn";
-import { Icons } from "../../Icons/index";
+import { Icons } from "../../icons/index";
 
 type Variant = keyof typeof chipsVariants;
 type rounded = keyof typeof roundedRadius;
 
-interface ChipsProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ChipsProps extends React.ComponentPropsWithRef<"button"> {
   variant?: Variant;
   rounded?: rounded;
   asChild?: boolean;
-  className?: string;
-  children?: React.ReactNode;
   close?: boolean;
-  ref?: React.ForwardedRef<HTMLButtonElement>;
   onClose?: HtmlHTMLAttributes<SVGSVGElement>["onClick"];
 }
 
@@ -32,18 +29,16 @@ const roundedRadius = {
   full: "rounded-full",
 };
 
-export const Chips: FC<ChipsProps> = ({
+export const Chips = ({
   className,
   children,
   variant = "primary",
-  disabled = false,
   asChild = false,
   close = false,
   onClose,
   rounded = "sm",
-  ref,
   ...props
-}) => {
+}: ChipsProps) => {
   const Comp = asChild ? Slot : "button";
   const { style, label } = chipsVariants[variant];
 
@@ -55,7 +50,6 @@ export const Chips: FC<ChipsProps> = ({
         style,
         className
       )}
-      ref={ref}
       {...props}
     >
       {children || label}
