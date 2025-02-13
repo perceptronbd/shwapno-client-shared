@@ -15,8 +15,8 @@ export type Option = {
 
 interface MultiSelectInputProps {
   options: Option[];
-  value?: string[];
-  onChange?: (selectedValues: string[]) => void;
+  value: string[];
+  onChange: (selectedValues: string[]) => void;
   placeholder?: string;
   selectAllText?: string;
   showSearch?: boolean;

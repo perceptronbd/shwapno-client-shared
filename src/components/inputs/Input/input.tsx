@@ -1,4 +1,4 @@
-import React, { FC, InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes } from "react";
 import { cn } from "../../../utils/cn";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -7,12 +7,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   ref?: React.ForwardedRef<HTMLInputElement>;
 }
 
-export const Input: FC<InputProps> = ({
-  className,
-  inputStyle,
-  ref,
-  ...props
-}) => {
+export const Input = ({ className, inputStyle, ref, ...props }: InputProps) => {
   return (
     <input
       {...props}

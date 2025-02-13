@@ -25,7 +25,7 @@ export { customSpacing } from "./src/utils/customSpacing";
 export { useDropdownPositionAdjustment } from "./src/hooks/useDropdownPositionAdjustment";
 
 // icons
-export { Icons } from "./src/Icons";
+export { Icons } from "./src/icons";
 
 //types
 
