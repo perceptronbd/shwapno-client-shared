@@ -1,8 +1,9 @@
-// FILE: install-peer-deps.js
+/* eslint-disable */
 const { execSync } = require("child_process");
 const path = require("path");
 const fs = require("fs");
-const packagesToIgnore = require("./ignore-package");
+const packagesToIgnore = require("./ignore-package.js");
+const colors = require("./colors.js");
 
 const packageJsonPath = path.resolve(__dirname, "../package.json");
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
@@ -11,8 +12,10 @@ const dependencies = packageJson.devDependencies || {};
 // Build an array of dependencies to install while skipping ignored packages.
 const dependenciesToInstall = Object.keys(dependencies)
   .filter((dep) => {
-    if (packagesToIgnore.default.includes(dep)) {
-      console.log(`Skipping installation for ${dep} (ignored)`);
+    if (packagesToIgnore.includes(dep)) {
+      console.log(
+        `${colors.yellow}Skipping installation for ${dep} (ignored)${colors.reset}`
+      );
       return false;
     }
     return true;
@@ -31,13 +34,23 @@ const installCommand = `npm install -D ${dependenciesToInstall.join(" ")}`;
 
 try {
   console.log(
-    `Attempting to install dependencies: ${dependenciesToInstall.join(", ")}`
+    `${
+      colors.yellow
+    }Attempting to install dependencies: ${dependenciesToInstall.join(", ")}${
+      colors.reset
+    }`
   );
   execSync(installCommand, { stdio: "inherit" });
-  console.log("Successfully installed all dependencies.");
+  console.log(
+    `${colors.green}Successfully installed all dependencies.${colors.reset}`
+  );
 } catch (error) {
-  console.error("Failed to install dependencies in a single command.");
+  console.error(
+    `${colors.red}Failed to install dependencies in a single command.${colors.reset}`
+  );
   throw error;
 }
 
-console.log("Shared dependencies installation complete.");
+console.log(
+  `${colors.green}Shared dev-dependencies installation complete.${colors.reset}`
+);
