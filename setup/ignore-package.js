@@ -9,4 +9,4 @@ const packagesToIgnore = [
   "@chromatic-com/storybook",
 ];
 
-export default packagesToIgnore;
+module.exports = packagesToIgnore;

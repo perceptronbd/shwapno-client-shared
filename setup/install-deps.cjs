@@ -1,7 +1,8 @@
-// FILE: install-peer-deps.js
+/*eslint-disable*/
 const { execSync } = require("child_process");
 const path = require("path");
 const fs = require("fs");
+const colors = require("./colors.js");
 
 const packageJsonPath = path.resolve(__dirname, "../package.json");
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
@@ -19,14 +20,24 @@ const installCommand = `npm install ${dependenciesToInstall.join(" ")}`;
 
 try {
   console.log(
-    `Attempting to install dependencies: ${dependenciesToInstall.join(", ")}`
+    `${
+      colors.yellow
+    }Attempting to install dependencies: ${dependenciesToInstall.join(", ")}${
+      colors.reset
+    }`
   );
   execSync(installCommand, { stdio: "inherit" });
-  console.log("Successfully installed all dependencies.");
+  console.log(
+    `${colors.green}Successfully installed all dependencies.${colors.reset}`
+  );
 } catch (error) {
-  console.error("Failed to install dependencies in a single command.");
+  console.error(
+    `${colors.red}Failed to install dependencies in a single command.${colors.reset}`
+  );
   // Optionally, you could implement a fallback by installing dependencies individually here.
   throw error;
 }
 
-console.log("Shared dependencies installation complete.");
+console.log(
+  `${colors.green}Shared dependencies installation complete.${colors.reset}`
+);
