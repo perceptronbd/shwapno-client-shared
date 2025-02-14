@@ -40,18 +40,18 @@ export const Drawer = ({
       onClick={handleBackdropClick}
       aria-hidden={!isOpen}
       className={`fixed inset-0 z-[70] flex items-end justify-center bg-black/85 text-white transition-opacity duration-300 ${
-        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        isOpen ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
       <div
-        className={`relative w-full h-[80%] bg-neutral-50 py-6 px-8 shadow-lg transform transition-transform duration-300 rounded-t-xl ${
+        className={`relative h-[80%] w-full transform rounded-t-xl bg-neutral-50 px-8 py-6 shadow-lg transition-transform duration-300 ${
           isOpen ? "translate-y-0" : "translate-y-full"
         }`}
       >
         {isCrossVisible && (
           <Button
             onClick={onClose}
-            className="absolute top-4 right-4 w-10 h-10 p-0 bg-neutral-100 hover:bg-neutral-300 rounded-full text-neutral-400"
+            className="absolute right-4 top-4 h-10 w-10 rounded-full bg-neutral-100 p-0 text-neutral-400 hover:bg-neutral-300"
             aria-label="Close Drawer"
           >
             <Icons.X size={22} />

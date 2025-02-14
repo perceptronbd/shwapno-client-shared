@@ -17,7 +17,7 @@ rl.question("Enter the tag version (e.g., 1.0.0): ", (tagVersion) => {
   if (!tagVersion) {
     tagVersion = packageJson.version;
     console.log(
-      `${colors.yellow}No tag version provided. Using version from package.json: ${tagVersion}${colors.reset}`
+      `${colors.yellow}No tag version provided. Using version from package.json: ${tagVersion}${colors.reset}`,
     );
   }
   try {
@@ -33,7 +33,7 @@ rl.question("Enter the tag version (e.g., 1.0.0): ", (tagVersion) => {
 
     // Checkout the specified tag
     console.log(
-      `${colors.yellow}Checking out tag v${tagVersion}...${colors.reset}`
+      `${colors.yellow}Checking out tag v${tagVersion}...${colors.reset}`,
     );
     execSync(`cd src/shared-components && git checkout tags/v${tagVersion}`, {
       stdio: "inherit",
@@ -50,11 +50,11 @@ rl.question("Enter the tag version (e.g., 1.0.0): ", (tagVersion) => {
     });
 
     console.log(
-      `${colors.green}Submodule updated successfully.${colors.reset}`
+      `${colors.green}Submodule updated successfully.${colors.reset}`,
     );
   } catch (error) {
     console.error(
-      `${colors.red}Failed to update submodule: ${error.message}${colors.reset}`
+      `${colors.red}Failed to update submodule: ${error.message}${colors.reset}`,
     );
   } finally {
     rl.close();

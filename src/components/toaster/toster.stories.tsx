@@ -19,7 +19,7 @@ export const Disabled: Story = {
       <Toaster />
       <button
         onClick={() => toast("This is a default toast")}
-        className="px-4 py-2 rounded bg-gray-100 text-gray-600 max-w-40"
+        className="max-w-40 rounded bg-gray-100 px-4 py-2 text-gray-600"
       >
         Show Disabled Toast
       </button>
@@ -34,7 +34,7 @@ export const Success: Story = {
       <Toaster />
       <button
         onClick={() => toast.success("Operation completed successfully")}
-        className="px-4 py-2 rounded bg-success-100 text-success-400"
+        className="bg-success-100 text-success-400 rounded px-4 py-2"
       >
         Show Success Toast
       </button>
@@ -49,7 +49,7 @@ export const ToastError: Story = {
       <Toaster />
       <button
         onClick={() => toast.error("An error occurred")}
-        className="px-4 py-2 rounded bg-error-100 text-error-400"
+        className="bg-error-100 text-error-400 rounded px-4 py-2"
       >
         Show Error Toast
       </button>
@@ -64,7 +64,7 @@ export const Warning: Story = {
       <Toaster />
       <button
         onClick={() => toast.warning("Warning: Please be cautious")}
-        className="px-4 py-2 rounded bg-warning-100 text-warning-400"
+        className="bg-warning-100 text-warning-400 rounded px-4 py-2"
       >
         Show Warning Toast
       </button>
@@ -84,7 +84,7 @@ export const WithDescription: Story = {
               "This is a more detailed description of the toast message",
           })
         }
-        className="px-4 py-2 rounded bg-gray-100 text-gray-600"
+        className="rounded bg-gray-100 px-4 py-2 text-gray-600"
       >
         Show Toast with Description
       </button>
@@ -103,7 +103,7 @@ export const WithDuration: Story = {
             duration: 5000, // 5 seconds
           })
         }
-        className="px-4 py-2 rounded bg-success-100 text-success-400"
+        className="bg-success-100 text-success-400 rounded px-4 py-2"
       >
         Show 5s Duration Toast
       </button>

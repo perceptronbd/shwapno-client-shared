@@ -5,7 +5,7 @@ export { Button } from "./src/components/buttons/button";
 export { Text } from "./src/components/texts/text";
 export { Chips } from "./src/components/chips/chips";
 export { FloatingLabelInput } from "./src/components/inputs/FloatingLabelInput/FloatingLabelInput";
-export { Input } from "./src/components/inputs/input/input";
+export { Input } from "./src/components/inputs/Input/input";
 export { Checkbox } from "./src/components/inputs/checkbox/checkBox";
 export { Radio } from "./src/components/inputs/radio/radio";
 export { Modal } from "./src/components/modals/modal";

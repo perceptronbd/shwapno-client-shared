@@ -45,10 +45,10 @@ export const Chips = ({
   return (
     <Comp
       className={cn(
-        "focus-visible:ring-ring inline-flex items-center justify-center gap-1 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-sm font-normal px-3 py-2",
+        "focus-visible:ring-ring ring-offset-background inline-flex items-center justify-center gap-1 whitespace-nowrap px-3 py-2 text-sm font-normal transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
         roundedRadius[rounded],
         style,
-        className
+        className,
       )}
       {...props}
     >

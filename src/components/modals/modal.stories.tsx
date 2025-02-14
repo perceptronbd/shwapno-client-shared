@@ -21,7 +21,7 @@ export const Default: Story = {
       <>
         <Button onClick={() => setIsOpen(true)}>Open Modal</Button>
         <Modal isOpen={isOpen} onClose={setIsOpen}>
-          <div className="p-4 bg-blue-400 w-full">
+          <div className="w-full bg-blue-400 p-4">
             <h2 className="text-lg font-semibold">Modal Title</h2>
             <p className="mt-2">This is a sample modal content.</p>
           </div>

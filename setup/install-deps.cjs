@@ -24,20 +24,20 @@ try {
       colors.yellow
     }Attempting to install dependencies: ${dependenciesToInstall.join(", ")}${
       colors.reset
-    }`
+    }`,
   );
   execSync(installCommand, { stdio: "inherit" });
   console.log(
-    `${colors.green}Successfully installed all dependencies.${colors.reset}`
+    `${colors.green}Successfully installed all dependencies.${colors.reset}`,
   );
 } catch (error) {
   console.error(
-    `${colors.red}Failed to install dependencies in a single command.${colors.reset}`
+    `${colors.red}Failed to install dependencies in a single command.${colors.reset}`,
   );
   // Optionally, you could implement a fallback by installing dependencies individually here.
   throw error;
 }
 
 console.log(
-  `${colors.green}Shared dependencies installation complete.${colors.reset}`
+  `${colors.green}Shared dependencies installation complete.${colors.reset}`,
 );
