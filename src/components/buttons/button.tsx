@@ -44,10 +44,10 @@ export const Button = ({
   return (
     <Comp
       className={cn(
-        "focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  font-medium cursor-pointer",
+        "focus-visible:ring-ring ring-offset-background inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap font-medium transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
         buttonVariants[variant],
         sizeVariants[size],
-        className
+        className,
       )}
       data-loading={loading}
       {...props}

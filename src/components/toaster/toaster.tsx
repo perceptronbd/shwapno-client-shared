@@ -17,7 +17,7 @@ export const Toaster = ({ className, ...props }: ToasterProps) => {
             data-[type=error]:group-[.toaster]:bg-error-100 data-[type=error]:group-[.toaster]:text-error-400
             data-[type=warning]:group-[.toaster]:bg-warning-100 data-[type=warning]:group-[.toaster]:text-warning-400
             data-[type=default]:group-[.toaster]:bg-gray-100 data-[type=default]:group-[.toaster]:text-gray-600`,
-            className
+            className,
           ),
           description: "group-[.toast]:text-muted-foreground",
           actionButton:

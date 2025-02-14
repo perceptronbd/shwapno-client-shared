@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useCallback } from "react";
 import { useDropdownPositionAdjustment } from "../../../hooks/useDropdownPositionAdjustment";
 import { Input } from "../input/input";
@@ -30,7 +32,7 @@ interface MultiSelectInputProps {
   icon?: React.ReactNode;
 }
 
-const MultiSelectInput = ({
+export const MultiSelectInput = ({
   options = [],
   value = [],
   onChange,
@@ -81,7 +83,7 @@ const MultiSelectInput = ({
       setSelectedValues(newValues);
       onChange?.(newValues);
     },
-    [selectedValues, onChange]
+    [selectedValues, onChange],
   );
 
   const handleRemoveTag = useCallback(
@@ -90,11 +92,11 @@ const MultiSelectInput = ({
       setSelectedValues(newValues);
       onChange?.(newValues);
     },
-    [selectedValues, onChange]
+    [selectedValues, onChange],
   );
 
   const filteredOptions = options.filter((option) =>
-    option.label.toLowerCase().includes(searchTerm.toLowerCase())
+    option.label.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   const handleSelectAll = useCallback(() => {
@@ -119,15 +121,14 @@ const MultiSelectInput = ({
   return (
     <div className="relative w-full" ref={containerRef}>
       {/* Trigger Area */}
-      <div
-        role="button"
+      <button
         tabIndex={0}
         className={cn(
-          "flex flex-wrap items-center gap-2 border-2 px-4 py-3 rounded-base transition-all duration-300 ease-in-out",
+          "rounded-base flex flex-wrap items-center gap-2 border-2 px-4 py-2 transition-all duration-300 ease-in-out",
           error ? "border-error-500" : "border-primary-200",
-          disabled ? "bg-neutral-100 cursor-not-allowed" : "bg-white",
+          disabled ? "cursor-not-allowed bg-neutral-100" : "bg-white",
           isOpen && !error && "border-primary-500",
-          className
+          className,
         )}
         onClick={handleToggleDropdown}
         onKeyDown={(e) => e.key === "Enter" && handleToggleDropdown()}
@@ -150,8 +151,8 @@ const MultiSelectInput = ({
         {selectedValues.length > 3 && (
           <Chips
             className={cn(
-              "cursor-pointer bg-primary-400 text-white",
-              chipClassName
+              "bg-primary-400 cursor-pointer text-white",
+              chipClassName,
             )}
             onClick={handleToggleChipsVisibility}
             close={false}
@@ -174,17 +175,17 @@ const MultiSelectInput = ({
                 setSelectedValues([]);
                 onChange?.([]);
               }}
-              className="w-full h-full border-r-2 border-primary-400 p-2 flex items-center justify-center"
+              className="border-primary-400 flex h-full w-full items-center justify-center border-r-2 p-2"
             >
               <Icons.X
                 size={16}
-                className="bg-primary-400 text-white rounded-full"
+                className="bg-primary-400 rounded-full text-white"
               />
             </div>
           )}
           {icon}
         </div>
-      </div>
+      </button>
 
       {errorMessage && (
         <Text variant="bodySmall" className="text-error-500 mt-1">
@@ -199,7 +200,7 @@ const MultiSelectInput = ({
           className={cn(
             "absolute z-10 mt-2 w-full rounded-[0.8rem] border bg-white shadow-[1px_2px_8px_0px_rgba(0_0_0_0.12),-1px_0px_4px_0px_rgba(0_0_0_0.08)]",
             dropdownPosition === "top" ? "bottom-full mb-2" : "top-full mt-2",
-            dropdownClassName
+            dropdownClassName,
           )}
           role="listbox"
           aria-multiselectable="true"
@@ -221,26 +222,26 @@ const MultiSelectInput = ({
           {showSelectAll && (
             <div
               className={cn(
-                "p-4 inline-flex items-center gap-x-2 w-full hover:bg-neutral-100 cursor-pointer",
+                "inline-flex w-full cursor-pointer items-center gap-x-2 p-4 hover:bg-neutral-100",
                 filteredOptions.every((opt) =>
-                  selectedValues.includes(opt.value)
-                ) && "bg-primary-100"
+                  selectedValues.includes(opt.value),
+                ) && "bg-primary-100",
               )}
               onClick={handleSelectAll}
               aria-selected={filteredOptions.every((opt) =>
-                selectedValues.includes(opt.value)
+                selectedValues.includes(opt.value),
               )}
             >
               <Checkbox
                 checked={filteredOptions.every((opt) =>
-                  selectedValues.includes(opt.value)
+                  selectedValues.includes(opt.value),
                 )}
                 aria-checked={
                   filteredOptions.some((opt) =>
-                    selectedValues.includes(opt.value)
+                    selectedValues.includes(opt.value),
                   ) &&
                   !filteredOptions.every((opt) =>
-                    selectedValues.includes(opt.value)
+                    selectedValues.includes(opt.value),
                   )
                 }
               />
@@ -259,10 +260,10 @@ const MultiSelectInput = ({
                 >
                   <div
                     className={cn(
-                      "flex items-center gap-2 w-full cursor-pointer p-4",
+                      "flex w-full cursor-pointer items-center gap-2 p-4",
                       !selectedValues.includes(option.value) &&
                         "hover:bg-neutral-100",
-                      selectedValues.includes(option.value) && "bg-primary-100"
+                      selectedValues.includes(option.value) && "bg-primary-100",
                     )}
                     onClick={() => handleSelectOption(option.value)}
                   >
@@ -283,4 +284,4 @@ const MultiSelectInput = ({
   );
 };
 
-export default MultiSelectInput;
+MultiSelectInput.display = "MultiSelectInput";

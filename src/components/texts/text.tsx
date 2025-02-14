@@ -82,7 +82,7 @@ export const Text = ({
 
   return (
     <Element
-      className={cn(`leading-6  ${styles} ${weightStyle} ${className}`)}
+      className={cn(`leading-6 ${styles} ${weightStyle} ${className}`)}
       style={style}
     >
       {children}

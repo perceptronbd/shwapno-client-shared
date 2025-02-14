@@ -24,6 +24,7 @@ jobs:
           rm -rf .storybook
           rm -f tsconfig.json
           rm -f README.md
+          rm -f .prettierrc
           find src/components -name "*.stories.tsx" -type f -delete
           echo "Unwanted files removed."
 
