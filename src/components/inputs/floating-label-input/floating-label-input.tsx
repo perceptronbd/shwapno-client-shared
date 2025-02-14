@@ -29,12 +29,12 @@ export const FloatingLabelInput = ({
   const inputType = type === "password" && showPassword ? "text" : type;
 
   return (
-    <div className="flex items-center relative">
+    <div className="relative flex items-center">
       {isIcon && Icon && (
         <div
           className={cn(
             "absolute left-4 top-1/2 -translate-y-1/2 transition-colors",
-            isFocused ? "text-primary-400" : "text-neutral-200"
+            isFocused ? "text-primary-400" : "text-neutral-200",
           )}
         >
           <Icon />
@@ -49,10 +49,10 @@ export const FloatingLabelInput = ({
           autoComplete="off"
           {...props}
           className={cn(
-            "peer block min-w-60 rounded-base border pr-4  py-3 pl-10 text-primary-400 placeholder:text-transparent focus:border-none focus:text-primary-400 focus:outline-primary-400 focus:ring-1 h-full focus:text-base",
+            "rounded-base text-primary-400 focus:text-primary-400 focus:outline-primary-400 peer block h-full min-w-60 border py-4 pl-10 pr-4 placeholder:text-transparent focus:border-none focus:text-base focus:ring-1",
             errorMessage ? "border-red-500" : "border-neutral-200",
             isIcon ? "pl-12" : "pl-3",
-            className
+            className,
           )}
           aria-invalid={!!errorMessage}
           onFocus={() => setIsFocused(true)}
@@ -63,8 +63,8 @@ export const FloatingLabelInput = ({
           <label
             htmlFor={id}
             className={cn(
-              "absolute top-3 z-10 origin-[0] -translate-y-6 scale-75 transform bg-white px-1 text-base text-neutral-300 duration-300 peer-placeholder-shown:-translate-y-1 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:bg-white peer-focus:text-primary-400",
-              isIcon ? "left-12" : "left-3"
+              "peer-focus:text-primary-400 absolute top-4 z-10 origin-[0] -translate-y-6 scale-75 transform bg-white px-1 text-base text-neutral-300 duration-300 peer-placeholder-shown:-translate-y-1 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:bg-white",
+              isIcon ? "left-12" : "left-3",
             )}
           >
             {label}
@@ -74,7 +74,7 @@ export const FloatingLabelInput = ({
         {type === "password" && (
           <button
             type="button"
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-primary-400"
+            className="hover:text-primary-400 absolute right-4 top-1/2 -translate-y-1/2 text-neutral-400"
             onClick={() => setShowPassword((prev) => !prev)}
           >
             {showPassword ? (

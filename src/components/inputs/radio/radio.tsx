@@ -30,17 +30,17 @@ export const Radio = ({ options, name, className, ...props }: RadioProps) => {
         <label
           key={value}
           className={cn(
-            "flex items-center gap-2 cursor-pointer text-xs md:text-base",
-            disabled && "opacity-50 cursor-not-allowed"
+            "flex cursor-pointer items-center gap-2 text-xs md:text-base",
+            disabled && "cursor-not-allowed opacity-50",
           )}
         >
           <RadioGroupPrimitive.Item
             value={value}
             disabled={disabled}
-            className="h-6 w-6 rounded-full border border-primary-400 focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50"
+            className="border-primary-400 focus-visible:ring-ring h-6 w-6 rounded-full border focus:outline-none focus-visible:ring-1 disabled:opacity-50"
           >
             <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-              <Icons.Circle className="h-4 w-4 fill-primary-400" />
+              <Icons.Circle className="fill-primary-400 h-4 w-4" />
             </RadioGroupPrimitive.Indicator>
           </RadioGroupPrimitive.Item>
           {label}

@@ -8,7 +8,7 @@ export const useDropdownPositionAdjustment = () => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState<"top" | "bottom">(
-    "bottom"
+    "bottom",
   );
 
   // Close dropdown when clicking outside

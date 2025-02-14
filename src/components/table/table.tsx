@@ -42,8 +42,8 @@ TableBody.displayName = "TableBody";
 const TableFooter = ({ className, ...props }: TableFooterProps) => (
   <tfoot
     className={cn(
-      "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
-      className
+      "bg-muted/50 border-t font-medium [&>tr]:last:border-b-0",
+      className,
     )}
     {...props}
   />
@@ -53,8 +53,8 @@ TableFooter.displayName = "TableFooter";
 const TableRow = ({ className, ...props }: TableRowProps) => (
   <tr
     className={cn(
-      "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
-      className
+      "hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors",
+      className,
     )}
     {...props}
   />
@@ -65,8 +65,8 @@ const TableHead = ({ className, ref, ...props }: TableHeadProps) => (
   <th
     ref={ref}
     className={cn(
-      "h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0",
-      className
+      "text-muted-foreground h-12 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0",
+      className,
     )}
     {...props}
   />
@@ -83,7 +83,7 @@ TableCell.displayName = "TableCell";
 
 const TableCaption = ({ className, ...props }: TableCaptionProps) => (
   <caption
-    className={cn("mt-4 text-sm text-muted-foreground", className)}
+    className={cn("text-muted-foreground mt-4 text-sm", className)}
     {...props}
   />
 );

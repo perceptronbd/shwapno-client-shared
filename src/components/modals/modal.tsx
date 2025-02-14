@@ -27,7 +27,7 @@ export const Modal = ({
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useClickOutside(overlayRef as React.RefObject<HTMLDivElement>, () =>
-    onClose(false)
+    onClose(false),
   );
 
   useEffect(() => {
@@ -46,22 +46,22 @@ export const Modal = ({
       className={cn(
         "fixed inset-0 flex h-screen w-full items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm transition-transform duration-300",
         isOpen ? "scale-100" : "hidden scale-50",
-        className
+        className,
       )}
       onClick={(e) => e.stopPropagation()}
     >
       <div
         ref={overlayRef}
         className={cn(
-          "relative mx-auto flex w-full max-w-lg justify-center bg-white shadow-lg rounded-sm p-4",
-          overlayClassName
+          "relative mx-auto flex w-full max-w-lg justify-center rounded-sm bg-white p-4 shadow-lg",
+          overlayClassName,
         )}
       >
         {children}
         {isCrossVisible && (
           <Button
             onClick={() => onClose(false)}
-            className="absolute top-4 right-4 p-2 bg-neutral-100 hover:bg-neutral-300 rounded-full text-neutral-400"
+            className="absolute right-4 top-4 rounded-full bg-neutral-100 p-2 text-neutral-400 hover:bg-neutral-300"
             aria-label="Close Drawer"
           >
             <Icons.X size={16} />
