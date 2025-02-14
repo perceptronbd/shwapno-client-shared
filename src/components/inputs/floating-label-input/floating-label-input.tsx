@@ -49,7 +49,7 @@ export const FloatingLabelInput = ({
           autoComplete="off"
           {...props}
           className={cn(
-            "rounded-base text-primary-400 focus:text-primary-400 focus:outline-primary-400 peer block h-full min-w-60 border py-3 pl-10 pr-4 placeholder:text-transparent focus:border-none focus:text-base focus:ring-1",
+            "rounded-base text-primary-400 focus:text-primary-400 focus:outline-primary-400 peer block h-full min-w-60 border py-4 pl-10 pr-4 placeholder:text-transparent focus:border-none focus:text-base focus:ring-1",
             errorMessage ? "border-red-500" : "border-neutral-200",
             isIcon ? "pl-12" : "pl-3",
             className,
@@ -63,7 +63,7 @@ export const FloatingLabelInput = ({
           <label
             htmlFor={id}
             className={cn(
-              "peer-focus:text-primary-400 absolute top-3 z-10 origin-[0] -translate-y-6 scale-75 transform bg-white px-1 text-base text-neutral-300 duration-300 peer-placeholder-shown:-translate-y-1 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:bg-white",
+              "peer-focus:text-primary-400 absolute top-4 z-10 origin-[0] -translate-y-6 scale-75 transform bg-white px-1 text-base text-neutral-300 duration-300 peer-placeholder-shown:-translate-y-1 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:bg-white",
               isIcon ? "left-12" : "left-3",
             )}
           >

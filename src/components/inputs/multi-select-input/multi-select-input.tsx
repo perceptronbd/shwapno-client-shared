@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useCallback } from "react";
 import { useDropdownPositionAdjustment } from "../../../hooks/useDropdownPositionAdjustment";
 import { Input } from "../input/input";
@@ -30,7 +32,7 @@ interface MultiSelectInputProps {
   icon?: React.ReactNode;
 }
 
-const MultiSelectInput = ({
+export const MultiSelectInput = ({
   options = [],
   value = [],
   onChange,
@@ -119,11 +121,10 @@ const MultiSelectInput = ({
   return (
     <div className="relative w-full" ref={containerRef}>
       {/* Trigger Area */}
-      <div
-        role="button"
+      <button
         tabIndex={0}
         className={cn(
-          "rounded-base flex flex-wrap items-center gap-2 border-2 px-4 py-3 transition-all duration-300 ease-in-out",
+          "rounded-base flex flex-wrap items-center gap-2 border-2 px-4 py-2 transition-all duration-300 ease-in-out",
           error ? "border-error-500" : "border-primary-200",
           disabled ? "cursor-not-allowed bg-neutral-100" : "bg-white",
           isOpen && !error && "border-primary-500",
@@ -184,7 +185,7 @@ const MultiSelectInput = ({
           )}
           {icon}
         </div>
-      </div>
+      </button>
 
       {errorMessage && (
         <Text variant="bodySmall" className="text-error-500 mt-1">
@@ -283,4 +284,4 @@ const MultiSelectInput = ({
   );
 };
 
-export default MultiSelectInput;
+MultiSelectInput.display = "MultiSelectInput";
