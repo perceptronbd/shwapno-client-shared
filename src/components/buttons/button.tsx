@@ -16,7 +16,7 @@ interface ButtonProps extends React.ComponentPropsWithRef<"button"> {
 
 const buttonVariants = {
   primary:
-    "bg-secondary-400 text-white hover:bg-secondary-500 disabled:bg-neutral-300",
+    "bg-secondary-400 text-white hover:bg-secondary-500",
   outline:
     "border border-secondary-400 text-secondary-400 hover:text-secondary-500 hover:border-secondary-500",
   link: "text-secondary-400 hover:text-secondary-500 hover:underline",
@@ -49,6 +49,7 @@ export const Button = ({
         sizeVariants[size],
         className,
       )}
+      disabled={props.disabled || loading}
       data-loading={loading}
       {...props}
     >
