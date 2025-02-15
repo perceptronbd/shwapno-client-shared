@@ -20,7 +20,6 @@ type Story = StoryObj<typeof FloatingLabelInput>;
 export const Default: Story = {
   args: {
     type: "text",
-    isIcon: true,
     Icon: Icons.Mail,
   },
 };
