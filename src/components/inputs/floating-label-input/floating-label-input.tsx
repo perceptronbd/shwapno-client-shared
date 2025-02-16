@@ -28,7 +28,8 @@ export const FloatingLabelInput = ({
   const inputType = type === "password" && showPassword ? "text" : type;
 
   return (
-    <div className="flex items-center relative w-full">
+<div>
+<div className="flex items-center relative w-full">
       { Icon && (
         <div
           className={cn(
@@ -86,16 +87,19 @@ export const FloatingLabelInput = ({
           </button>
         )}
 
-        {errorMessage && (
-          <span className="mt-2 block w-full gap-2 rounded-sm bg-red-200 px-4 py-2 text-xs text-red-500">
-            <div className="flex items-center gap-2">
-              <Icons.AlertCircle size={15} className="text-red-500" />
-              {errorMessage}
-            </div>
-          </span>
-        )}
+
       </div>
+    
     </div>
+      {errorMessage && (
+        <span className="mt-2 block w-full gap-2 rounded-sm bg-red-200 px-4 py-2 text-xs text-red-500">
+          <div className="flex items-center gap-2">
+            <Icons.AlertCircle size={15} className="text-red-500" />
+            {errorMessage}
+          </div>
+        </span>
+      )}
+</div>
   );
 };
 

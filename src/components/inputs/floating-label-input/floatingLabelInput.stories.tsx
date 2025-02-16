@@ -20,7 +20,6 @@ type Story = StoryObj<typeof FloatingLabelInput>;
 export const Default: Story = {
   args: {
     type: "text",
-    isIcon: true,
     Icon: Icons.Mail,
   },
 };
@@ -28,6 +27,7 @@ export const Default: Story = {
 export const WithError: Story = {
   args: {
     type: "email",
+    Icon: Icons.Mail,
     errorMessage: "This field is required",
     label: "Email",
   },
