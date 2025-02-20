@@ -3,12 +3,15 @@
 import { ReactNode, useEffect } from "react";
 import { Button } from "../buttons/button";
 import { Icons } from "../../icons/index";
+import { cn } from "../../utils/cn";
 
 interface DrawerProps {
   isOpen: boolean;
   onClose: () => void;
   children?: ReactNode;
   isCrossVisible?: boolean;
+  orientation?: "horizontal" | "vertical";
+  className?: string;
 }
 
 export const Drawer = ({
@@ -16,6 +19,8 @@ export const Drawer = ({
   onClose,
   children,
   isCrossVisible = true,
+  orientation = "vertical",
+  className,
 }: DrawerProps) => {
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -35,18 +40,30 @@ export const Drawer = ({
     };
   }, [isOpen]);
 
+  const isHorizontal = orientation === "horizontal";
+
+  const translateClass = {
+    horizontal: isOpen ? "translate-x-0" : "-translate-x-full",
+    vertical: isOpen ? "translate-y-0" : "translate-y-full",
+  }[orientation];
+  
+
   return (
     <div
       onClick={handleBackdropClick}
       aria-hidden={!isOpen}
-      className={`fixed inset-0 z-[70] flex items-end justify-center bg-black/85 text-white transition-opacity duration-300 ${
-        isOpen ? "opacity-100" : "pointer-events-none opacity-0"
-      }`}
+      className={cn(
+        "fixed inset-0 z-[70] flex  bg-black/85 text-white transition-opacity duration-300",
+        isOpen ? "opacity-100" : "pointer-events-none opacity-0",
+        isHorizontal ? "items-center justify-start" : "items-end justify-center"
+      )}
     >
       <div
-        className={`relative h-[80%] w-full transform rounded-t-xl bg-neutral-50 px-8 py-6 shadow-lg transition-transform duration-300 ${
-          isOpen ? "translate-y-0" : "translate-y-full"
-        }`}
+        className={cn(
+          "relative bg-neutral-50 shadow-lg transition-transform duration-300",
+          isHorizontal ? "h-full w-full p-6" : "h-full w-full px-8 py-6 rounded-t-xl",
+          translateClass, className // Using the cleaned-up logic
+        )}
       >
         {isCrossVisible && (
           <Button

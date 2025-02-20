@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import MultiSelectInput from "./multi-select-input";
+import { MultiSelectInput } from "./multi-select-input";
 import { Icons } from "../../../icons/index";
 
 const meta: Meta<typeof MultiSelectInput> = {
