@@ -2,7 +2,7 @@
 
 import React, { ComponentPropsWithoutRef, useState, useCallback } from "react";
 import { cn } from "../../../utils/cn";
-import { Icons } from "../../../icons/index";
+import { AlertCircle, Eye, EyeOffIcon } from "lucide-react";
 
 interface InputProps extends Omit<ComponentPropsWithoutRef<"input">, "ref"> {
   errorMessage?: string;
@@ -76,11 +76,7 @@ export const FloatingLabelInput = ({
             onClick={togglePassword}
             aria-label={showPassword ? "Hide password" : "Show password"}
           >
-            {showPassword ? (
-              <Icons.Eye size={18} />
-            ) : (
-              <Icons.EyeOffIcon size={18} />
-            )}
+            {showPassword ? <Eye size={18} /> : <EyeOffIcon size={18} />}
           </button>
         )}
       </div>
@@ -90,7 +86,7 @@ export const FloatingLabelInput = ({
           role="alert"
           className="mt-2 flex w-full items-center gap-2 rounded-sm bg-red-200 px-4 py-2 text-xs text-red-500"
         >
-          <Icons.AlertCircle size={15} className="text-red-500" />
+          <AlertCircle size={15} className="text-red-500" />
           {errorMessage}
         </span>
       )}

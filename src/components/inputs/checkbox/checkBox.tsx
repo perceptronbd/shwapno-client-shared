@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { cn } from "../../../utils/cn";
-import { Icons } from "../../../icons/index";
+import { Check } from "lucide-react";
 import { Text } from "../../texts/text";
 
 interface CheckboxProps
@@ -27,7 +27,7 @@ export const Checkbox = ({
       {...props}
     >
       <CheckboxPrimitive.Indicator className="flex items-center justify-center text-white">
-        <Icons.Check className="h-4 w-4" />
+        <Check className="h-4 w-4" />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
     {label && <Text variant="bodyBase">{label}</Text>}

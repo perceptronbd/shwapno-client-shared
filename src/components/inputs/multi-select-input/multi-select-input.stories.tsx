@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 import { MultiSelectInput } from "./multi-select-input";
-import { Icons } from "../../../icons/index";
+import { ChevronDown } from "lucide-react";
 
 const meta: Meta<typeof MultiSelectInput> = {
   title: "Components/MultiSelectInput",
@@ -78,7 +78,7 @@ export const CustomizedStyling: Story = {
     className: "border-2 border-primary-500",
     dropdownClassName: "bg-neutral-50",
     chipClassName: "bg-primary-100 text-primary-800",
-    icon: <Icons.ChevronDown />,
+    icon: <ChevronDown />,
   },
 };
 
