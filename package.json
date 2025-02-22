@@ -1,8 +1,11 @@
 {
   "name": "shared-react-components",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "shared react components for shwapno",
-  "author": "Your Name asifaslam.aa81@gmail.com",
+  "author": {
+    "name": "Perceptron",
+    "email": "info@perceptron.site"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -19,9 +22,21 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "dependencies": {
+    "@radix-ui/react-checkbox": "^1.1.3",
+    "@radix-ui/react-dialog": "^1.1.5",
+    "@radix-ui/react-radio-group": "^1.2.2",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.3",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sonner": "^2.0.1",
+    "tailwind-merge": "^2.5.5"
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
-    "@radix-ui/react-slot": "^1.1.0",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
     "@storybook/addon-onboarding": "^8.4.7",
@@ -33,22 +48,10 @@
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
-    "clsx": "^2.1.1",
     "postcss": "^8.4.49",
     "storybook": "^8.4.7",
-    "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2",
     "vite": "^6.0.3"
-  },
-  "dependencies": {
-    "@radix-ui/react-checkbox": "^1.1.3",
-    "@radix-ui/react-dialog": "^1.1.5",
-    "@radix-ui/react-radio-group": "^1.2.2",
-    "@radix-ui/react-switch": "^1.1.3",
-    "lucide-react": "^0.475.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "sonner": "^2.0.1"
   }
 }
