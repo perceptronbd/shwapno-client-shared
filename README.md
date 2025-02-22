@@ -34,7 +34,6 @@ npm run update-submodule
 ```json
 {
   "install-shared-deps": "node src/shared-components/setup/install-deps.cjs && node src/shared-components/setup/install-dev-deps.cjs",
-  "postinstall": "npm run install-shared-deps"
 }
 ```
 
