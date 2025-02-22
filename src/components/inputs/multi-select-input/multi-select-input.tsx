@@ -5,10 +5,10 @@ import { useDropdownPositionAdjustment } from "../../../hooks/useDropdownPositio
 import { Input } from "../input/input";
 import { Chips } from "../../chips/chips";
 import { Text } from "../../texts/text";
-import { Icons } from "../../../icons/index";
 import { cn } from "../../../utils/cn";
 import { Checkbox } from "../checkbox/checkBox";
 import isEqual from "../../../utils/isEqual";
+import { ChevronDown, X } from "lucide-react";
 
 export type Option = {
   label: string;
@@ -46,7 +46,7 @@ export const MultiSelectInput = ({
   chipClassName,
   error = false,
   errorMessage,
-  icon = <Icons.ChevronDown />,
+  icon = <ChevronDown />,
 }: MultiSelectInputProps) => {
   const [selectedValues, setSelectedValues] = useState<string[]>(value);
   const [showAllChips, setShowAllChips] = useState(false);
@@ -177,10 +177,7 @@ export const MultiSelectInput = ({
               }}
               className="border-primary-400 flex h-full w-full items-center justify-center border-r-2 p-2"
             >
-              <Icons.X
-                size={16}
-                className="bg-primary-400 rounded-full text-white"
-              />
+              <X size={16} className="bg-primary-400 rounded-full text-white" />
             </div>
           )}
           {icon}

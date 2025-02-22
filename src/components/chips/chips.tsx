@@ -1,7 +1,7 @@
 import React, { HtmlHTMLAttributes } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../utils/cn";
-import { Icons } from "../../icons/index";
+import { LucideX } from "lucide-react";
 
 type Variant = keyof typeof chipsVariants;
 type rounded = keyof typeof roundedRadius;
@@ -53,9 +53,7 @@ export const Chips = ({
       {...props}
     >
       {children || label}
-      {close && (
-        <Icons.LucideX onClick={onClose} aria-label="Dismiss" size={14} />
-      )}
+      {close && <LucideX onClick={onClose} aria-label="Dismiss" size={14} />}
     </Comp>
   );
 };
