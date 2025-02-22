@@ -1,8 +1,8 @@
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { Icons } from "../../icons";
 
 import { cn } from "../../utils/cn";
+import { Loader } from "lucide-react";
 
 type Variant = keyof typeof buttonVariants;
 type Size = keyof typeof sizeVariants;
@@ -15,8 +15,7 @@ interface ButtonProps extends React.ComponentPropsWithRef<"button"> {
 }
 
 const buttonVariants = {
-  primary:
-    "bg-secondary-400 text-white hover:bg-secondary-500 disabled:bg-neutral-300",
+  primary: "bg-secondary-400 text-white hover:bg-secondary-500",
   outline:
     "border border-secondary-400 text-secondary-400 hover:text-secondary-500 hover:border-secondary-500",
   link: "text-secondary-400 hover:text-secondary-500 hover:underline",
@@ -49,13 +48,14 @@ export const Button = ({
         sizeVariants[size],
         className,
       )}
+      disabled={props.disabled || loading}
       data-loading={loading}
       {...props}
     >
       {loading ? (
         <>
           <div className="flex h-4 w-4 animate-spin items-center justify-center rounded-full">
-            <Icons.Loader />
+            <Loader />
           </div>
           {children && <span>{children}</span>}
         </>

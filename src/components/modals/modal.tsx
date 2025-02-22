@@ -1,10 +1,10 @@
 "use client";
 
-import { Icons } from "../../icons/index";
 import { Button } from "../buttons/button";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import { cn } from "../../utils/cn";
 import { useClickOutside } from "../../hooks/useClickOutside";
+import { X } from "lucide-react";
 
 type ModalProps = {
   className?: string;
@@ -64,7 +64,7 @@ export const Modal = ({
             className="absolute right-4 top-4 rounded-full bg-neutral-100 p-2 text-neutral-400 hover:bg-neutral-300"
             aria-label="Close Drawer"
           >
-            <Icons.X size={16} />
+            <X size={16} />
           </Button>
         )}
       </div>

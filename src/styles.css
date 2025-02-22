@@ -14,3 +14,15 @@ dialog:modal {
 ::-ms-reveal {
   display: visible;
 }
+
+
+/* Global CSS (e.g., styles/globals.css) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #333 !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  /* ^ Make sure to match your input background color here */
+  transition: background-color 5000s ease-in-out 0s;
+}
