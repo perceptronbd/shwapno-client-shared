@@ -16,6 +16,7 @@ export { Toaster } from "./src/components/toaster/toaster";
 
 // export multiple exports from a single file
 export * from "./src/components/table/table";
+export * from "./src/components/accordion/accordion";
 
 // utils
 export { cn } from "./src/utils/cn";
@@ -24,8 +25,6 @@ export { customSpacing } from "./src/utils/customSpacing";
 
 //hooks
 export { useDropdownPositionAdjustment } from "./src/hooks/useDropdownPositionAdjustment";
-
-
 
 //types
 
