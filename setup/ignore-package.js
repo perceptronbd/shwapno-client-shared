@@ -9,6 +9,8 @@ const packagesToIgnore = [
   "@chromatic-com/storybook",
   "react",
   "react-dom",
+  "vite",
+  "@vitejs/plugin-react",
 ];
 
 module.exports = packagesToIgnore;
