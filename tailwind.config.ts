@@ -63,6 +63,9 @@ export const tailwindConfig: Config = {
           400: "#FD0A0A",
           500: "#E00909",
         },
+        background: {
+          primary: "#F5F5F5",
+        },
       },
       keyframes: {
         "accordion-down": {
