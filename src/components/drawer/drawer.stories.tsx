@@ -25,7 +25,12 @@ export const Default: Story = {
     return (
       <>
         <Button onClick={handleOpen}>Open Drawer</Button>
-        <Drawer className="bg-primary-400 w-full" orientation="vertical" isOpen={isOpen} onClose={handleClose}>
+        <Drawer
+          className="bg-primary-400 w-full"
+          orientation="vertical"
+          isOpen={isOpen}
+          onClose={handleClose}
+        >
           {/* <div className="text-white">
             <h2>Drawer Content</h2>
             <p>This is some content inside the drawer.</p>
