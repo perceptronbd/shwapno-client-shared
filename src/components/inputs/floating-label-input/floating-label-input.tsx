@@ -7,7 +7,7 @@ import { AlertCircle, Eye, EyeOffIcon } from "lucide-react";
 interface InputProps extends Omit<ComponentPropsWithoutRef<"input">, "ref"> {
   errorMessage?: string;
   label?: string;
-  Icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  Icon?: React.ComponentType;
 }
 
 export const FloatingLabelInput = ({
