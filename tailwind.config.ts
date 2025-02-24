@@ -82,5 +82,3 @@ export const tailwindConfig: Config = {
   },
   plugins: [],
 };
-
-module.exports = tailwindConfig;
