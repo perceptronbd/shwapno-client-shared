@@ -1,18 +1,19 @@
 "use client";
 
-import { LucideIcon } from "lucide-react";
-import { cn } from "src/utils/cn";
+import { cn } from "../../utils/cn";
 
 interface SidebarLinkProps {
   name: string;
   href: string;
   currentPath: string;
-  Icon?: LucideIcon;
+  Icon?: React.ComponentType<{ size: number }>;
   onClose?: () => void;
-  LinkComponent : React.FC<{ href: string;
+  LinkComponent: React.FC<{
+    href: string;
     className?: string;
     onClick?: () => void;
-    children: React.ReactNode;}>
+    children: React.ReactNode;
+  }>;
 }
 
 export const SidebarLink: React.FC<SidebarLinkProps> = ({
@@ -21,10 +22,8 @@ export const SidebarLink: React.FC<SidebarLinkProps> = ({
   Icon,
   currentPath,
   onClose,
-    LinkComponent,
+  LinkComponent,
 }) => {
-
-
   return (
     <LinkComponent
       onClick={onClose}
