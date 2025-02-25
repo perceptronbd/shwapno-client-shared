@@ -14,6 +14,12 @@ export { Drawer } from "./src/components/drawer/drawer";
 export { Switch } from "./src/components/switch/switch";
 export { Toaster } from "./src/components/toaster/toaster";
 export { Sidebar } from "./src/components/sidebar/sidebar";
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "./src/components/tabs/tabs";
 
 // export multiple exports from a single file
 export * from "./src/components/table/table";
