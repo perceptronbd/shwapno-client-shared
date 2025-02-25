@@ -11,23 +11,23 @@ const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
 const dependencies = packageJson.dependencies || {};
 
 const dependenciesToInstall = Object.keys(dependencies)
-.filter((dep) => {
-  if (packagesToIgnore.includes(dep)) {
-    console.log(
-      `${colors.yellow}Skipping installation for ${dep} (ignored)${colors.reset}`,
-    );
-    return false;
-  }
-  return true;
-})
-.map((dep) => {
-  const versionRanges = dependencies[dep].split(" || ");
-  // Choose the second version range if available, otherwise the first.
-  const chosenVersion = versionRanges[1]
-    ? versionRanges[1]
-    : versionRanges[0];
-  return `${dep}@${chosenVersion}`;
-});
+  .filter((dep) => {
+    if (packagesToIgnore.includes(dep)) {
+      console.log(
+        `${colors.yellow}Skipping installation for ${dep} (ignored)${colors.reset}`,
+      );
+      return false;
+    }
+    return true;
+  })
+  .map((dep) => {
+    const versionRanges = dependencies[dep].split(" || ");
+    // Choose the second version range if available, otherwise the first.
+    const chosenVersion = versionRanges[1]
+      ? versionRanges[1]
+      : versionRanges[0];
+    return `${dep}@${chosenVersion}`;
+  });
 // Create the install command that includes all dependencies.
 const installCommand = `npm install ${dependenciesToInstall.join(" ")}`;
 
