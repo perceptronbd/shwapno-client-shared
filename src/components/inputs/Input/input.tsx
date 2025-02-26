@@ -13,7 +13,7 @@ export const Input = ({ className, inputStyle, ref, ...props }: InputProps) => {
       {...props}
       ref={ref}
       className={cn(
-        "text-primary-400 border-primary-100 focus:outline-primary-200 placeholder-bold rounded-base w-full border px-4 py-3 text-base placeholder:text-base",
+        "text-primary-400 border-primary-100 placeholder-bold rounded-base w-full border px-4 py-3 text-base placeholder:text-base",
         className,
         inputStyle,
       )}
