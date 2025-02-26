@@ -7,6 +7,7 @@ export { Chips } from "./src/components/chips/chips";
 export { FloatingLabelInput } from "./src/components/inputs/floating-label-input/floating-label-input";
 export { MultiSelectInput } from "./src/components/inputs/multi-select-input/multi-select-input";
 export { Input } from "./src/components/inputs/input/input";
+export { Textarea } from "./src/components/inputs/textarea/textarea";
 export { Checkbox } from "./src/components/inputs/checkbox/checkBox";
 export { Radio } from "./src/components/inputs/radio/radio";
 export { Modal } from "./src/components/modals/modal";

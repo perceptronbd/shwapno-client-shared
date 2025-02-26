@@ -7,7 +7,7 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   ref?: React.ForwardedRef<HTMLTextAreaElement>;
 }
 
-export const Input = ({
+export const Textarea = ({
   className,
   inputStyle,
   ref,
@@ -26,4 +26,4 @@ export const Input = ({
   );
 };
 
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";
