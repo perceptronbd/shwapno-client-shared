@@ -8,6 +8,8 @@ export { FloatingLabelInput } from "./src/components/inputs/floating-label-input
 export { MultiSelectInput } from "./src/components/inputs/multi-select-input/multi-select-input";
 export { Input } from "./src/components/inputs/input/input";
 export { Textarea } from "./src/components/inputs/textarea/textarea";
+export { ImageInput } from "./src/components/inputs/file-input/image-input";
+export { InputSelect } from "./src/components/inputs/input-select/input-select";
 export { Checkbox } from "./src/components/inputs/checkbox/checkBox";
 export { Radio } from "./src/components/inputs/radio/radio";
 export { Modal } from "./src/components/modals/modal";

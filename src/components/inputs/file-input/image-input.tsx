@@ -1,34 +1,39 @@
 "use client";
 
-import { Text } from "@shared-components/texts/text";
+import { Text } from "../../texts/text";
 import { ImagePlus } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { useFormContext } from "react-hook-form";
 import { cn } from "../../../utils/cn";
+import {
+  FieldError,
+  FieldErrorsImpl,
+  FieldValues,
+  Merge,
+} from "react-hook-form";
 
+type ErrorType =
+  | string
+  | FieldError
+  | Merge<FieldError, FieldErrorsImpl<FieldValues>>
+  | undefined;
 interface ImageInputProps {
   name: string;
-  required?: boolean;
+  error?: ErrorType;
   className?: string;
 }
 
-const ImageInput: React.FC<ImageInputProps> = ({
+export const ImageInput: React.FC<ImageInputProps> = ({
   name,
-  required,
+  error,
   className,
+  ...props
 }) => {
-  const {
-    register,
-    setValue,
-    formState: { errors },
-  } = useFormContext();
   const [preview, setPreview] = useState<string | null>(null);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setValue(name, file, { shouldValidate: true });
       setPreview(URL.createObjectURL(file));
     }
   };
@@ -39,7 +44,7 @@ const ImageInput: React.FC<ImageInputProps> = ({
         id={name}
         accept="image/*"
         type="file"
-        {...register(name, { required })}
+        {...props}
         onChange={handleImageChange}
         className="hidden"
       />
@@ -68,13 +73,9 @@ const ImageInput: React.FC<ImageInputProps> = ({
           </>
         )}
       </label>
-      {errors[name] && (
-        <span className="text-xs text-red-500">
-          {errors[name]?.message as string}
-        </span>
+      {error && (
+        <Text className="text-xs text-red-500">{error.toString()}</Text>
       )}
     </div>
   );
 };
-
-export default ImageInput;
