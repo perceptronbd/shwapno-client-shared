@@ -55,7 +55,6 @@ export const InputSelect = ({
           className="w-full border-none outline-none"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          onFocus={() => setDropdownOpen(true)}
         />
         {dropdownOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
       </div>
@@ -71,7 +70,8 @@ export const InputSelect = ({
               onValueChange={(val) => {
                 setSelectedProduct(val);
                 setSearchQuery(
-                  filteredCategories.find((p) => p.id === val)?.name ?? "",
+                  transformedCategories.find((p) => p.value === val)?.label ??
+                    "",
                 );
                 setDropdownOpen(false);
               }}
