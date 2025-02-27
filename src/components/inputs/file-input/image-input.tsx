@@ -31,14 +31,6 @@ export const ImageInput: React.FC<ImageInputProps> = ({
   error,
   className,
 }) => {
-  useEffect(() => {
-    return () => {
-      if (value instanceof File) {
-        URL.revokeObjectURL(URL.createObjectURL(value)); // Clean up object URLs
-      }
-    };
-  }, [value]);
-
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     if (file) {
