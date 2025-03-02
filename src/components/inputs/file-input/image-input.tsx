@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AlertCircle, ImagePlus } from "lucide-react";
 import Image from "next/image";
 import { cn } from "../../../utils/cn";
@@ -31,6 +31,22 @@ export const ImageInput: React.FC<ImageInputProps> = ({
   error,
   className,
 }) => {
+  const [preview, setPreview] = useState<string | null>(null);
+
+  console.log("img value", value);
+
+  // Update preview when value changes
+  useEffect(() => {
+    if (typeof value === "string") {
+      // If value is a URL, use it as the preview
+      setPreview(value);
+    } else if (value instanceof File) {
+      // If value is a File, create a URL for preview
+      setPreview(URL.createObjectURL(value));
+    } else {
+      setPreview("");
+    }
+  }, [value]);
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     if (file) {
@@ -54,11 +70,11 @@ export const ImageInput: React.FC<ImageInputProps> = ({
           className,
         )}
       >
-        {value ? (
+        {value && preview ? (
           <Image
             height={100}
             width={100}
-            src={URL.createObjectURL(value)}
+            src={preview}
             alt="Preview"
             className="w-1/3 rounded-lg border xl:w-1/5"
           />

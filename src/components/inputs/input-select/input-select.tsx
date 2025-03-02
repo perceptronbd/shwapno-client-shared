@@ -14,12 +14,14 @@ export interface Category {
 }
 
 interface InputSelectProps {
+  searchString?: string;
   categories: Category[];
   placeholder?: string;
   error?: string;
 }
 
 export const InputSelect = ({
+  searchString = "",
   categories,
   placeholder,
   error,
@@ -27,7 +29,7 @@ export const InputSelect = ({
 }: InputSelectProps) => {
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState<string>(searchString);
 
   const filteredCategories = categories.filter((category) =>
     category.name.toLowerCase().includes(searchQuery.toLowerCase()),
