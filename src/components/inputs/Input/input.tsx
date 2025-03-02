@@ -19,7 +19,7 @@ export const Input = ({
       <input
         {...props}
         className={cn(
-          "text-primary-400 border-primary-100 placeholder-bold rounded-base w-full border px-4 py-3 text-base placeholder:text-base",
+          "text-primary-400 border-primary-100 placeholder-bold rounded-base w-full border px-4 py-3 text-base placeholder:text-base focus:outline-none",
           className,
           inputStyle,
         )}
