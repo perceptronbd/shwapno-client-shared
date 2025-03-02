@@ -1,32 +1,60 @@
-"use client";
-import { Toaster as Sonner } from "sonner";
+import { CircleAlert, CircleCheck, CircleX, Info } from "lucide-react";
+import { Text } from "../texts/text";
 import { cn } from "../../utils/cn";
 
-type ToasterProps = React.ComponentProps<typeof Sonner>;
+interface CustomToastProps {
+  title: string;
+  description?: string;
+  type?: "success" | "error" | "warning" | "info";
+}
 
-export const Toaster = ({ className, ...props }: ToasterProps) => {
+export const CustomToast = ({
+  title,
+  description,
+  type = "info",
+}: CustomToastProps) => {
+  const iconProps = {
+    strokeWidth: 2,
+    className: cn("size-10", {
+      "text-success-500": type === "success",
+      "text-error-500": type === "error",
+      "text-warning-500": type === "warning",
+    }),
+  };
+
+  const getIcon = () => {
+    switch (type) {
+      case "success":
+        return <CircleCheck {...iconProps} />;
+      case "error":
+        return <CircleX {...iconProps} />;
+      case "warning":
+        return <CircleAlert {...iconProps} />;
+      default:
+        return <Info {...iconProps} />;
+    }
+  };
+
   return (
-    <Sonner
-      theme="light"
-      className="toaster group"
-      toastOptions={{
-        classNames: {
-          toast: cn(
-            `group toast
-            data-[type=success]:group-[.toaster]:bg-success-100 data-[type=success]:group-[.toaster]:text-success-400
-            data-[type=error]:group-[.toaster]:bg-error-100 data-[type=error]:group-[.toaster]:text-error-400
-            data-[type=warning]:group-[.toaster]:bg-warning-100 data-[type=warning]:group-[.toaster]:text-warning-400
-            data-[type=default]:group-[.toaster]:bg-gray-100 data-[type=default]:group-[.toaster]:text-gray-600`,
-            className,
-          ),
-          description: "group-[.toast]:text-muted-foreground",
-          actionButton:
-            "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
-          cancelButton:
-            "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
-        },
-      }}
-      {...props}
-    />
+    <div role="alert" className="flex w-full items-start gap-3 p-3">
+      {getIcon()}
+      <div className="flex-1 space-y-1">
+        <Text
+          weight="bold"
+          className={cn("leading-none", {
+            "text-success-500": type === "success",
+            "text-error-500": type === "error",
+            "text-warning-500": type === "warning",
+          })}
+        >
+          {title}
+        </Text>
+        {description && (
+          <Text variant="bodySmall" className="text-neutral-400">
+            {description}
+          </Text>
+        )}
+      </div>
+    </div>
   );
 };
