@@ -9,7 +9,9 @@ export { MultiSelectInput } from "./src/components/inputs/multi-select-input/mul
 export { Input } from "./src/components/inputs/input/input";
 export { Textarea } from "./src/components/inputs/textarea/textarea";
 export { ImageInput } from "./src/components/inputs/file-input/image-input";
-export { InputSelect } from "./src/components/inputs/input-select/input-select";
+
+export { FilterableDropdown } from "./src/components/inputs/filterable-dropdown/filterable.dropdown";
+
 export { Checkbox } from "./src/components/inputs/checkbox/checkBox";
 export { Radio } from "./src/components/inputs/radio/radio";
 export { Modal } from "./src/components/modals/modal";
