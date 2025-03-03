@@ -33,8 +33,6 @@ export const ImageInput: React.FC<ImageInputProps> = ({
 }) => {
   const [preview, setPreview] = useState<string | null>(null);
 
-  console.log("img value", value);
-
   // Update preview when value changes
   useEffect(() => {
     if (typeof value === "string") {
