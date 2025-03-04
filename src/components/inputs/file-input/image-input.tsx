@@ -45,6 +45,7 @@ export const ImageInput: React.FC<ImageInputProps> = ({
       setPreview("");
     }
   }, [value]);
+
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
     if (file) {
