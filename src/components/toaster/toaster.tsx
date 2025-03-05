@@ -36,7 +36,7 @@ export const CustomToast = ({
   };
 
   return (
-    <div role="alert" className="flex w-full items-start gap-3 p-3">
+    <div role="alert" className="flex w-full items-start gap-3">
       {getIcon()}
       <div className="flex-1 space-y-1">
         <Text
