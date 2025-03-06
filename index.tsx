@@ -17,7 +17,7 @@ export { Radio } from "./src/components/inputs/radio/radio";
 export { Modal } from "./src/components/modals/modal";
 export { Drawer } from "./src/components/drawer/drawer";
 export { Switch } from "./src/components/switch/switch";
-export { Toaster } from "./src/components/toaster/toaster";
+export { CustomToast } from "./src/components/toaster/toaster";
 export { Sidebar } from "./src/components/sidebar/sidebar";
 export {
   Tabs,
