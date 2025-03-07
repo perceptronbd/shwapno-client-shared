@@ -60,7 +60,7 @@ export const MultiSelectInput = ({
 
   // Update selectedValues only when value has changed
   useEffect(() => {
-    if (!isEqual(selectedValues, value)) {
+    if (!isEqual<string[]>(selectedValues, value)) {
       setSelectedValues(value);
     }
   }, [value, selectedValues]);
