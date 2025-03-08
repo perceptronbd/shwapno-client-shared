@@ -46,7 +46,6 @@ export const InputSelect = ({
       <div
         className={cn(
           "relative flex items-center justify-between rounded-lg border bg-white px-4",
-          dropdownOpen ? "border-red-500" : "border-gray-300",
         )}
         onClick={() => setDropdownOpen((prev) => !prev)}
       >
