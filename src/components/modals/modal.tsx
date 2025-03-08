@@ -53,7 +53,7 @@ export const Modal = ({
       <div
         ref={overlayRef}
         className={cn(
-          "relative mx-auto flex w-full max-w-lg justify-center rounded-sm bg-white p-4 shadow-lg",
+          "relative mx-auto flex w-full justify-center",
           overlayClassName,
         )}
       >

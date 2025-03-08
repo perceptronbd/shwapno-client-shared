@@ -2,24 +2,25 @@ import React, { ComponentPropsWithoutRef } from "react";
 import { cn } from "../../../utils/cn";
 import { AlertCircle } from "lucide-react";
 
-interface InputProps extends Omit<ComponentPropsWithoutRef<"input">, "ref"> {
-  error?: string;
+interface TextareaProps
+  extends Omit<ComponentPropsWithoutRef<"textarea">, "ref"> {
   className?: string;
   inputStyle?: string;
+  error?: string;
 }
 
-export const Input = ({
+export const Textarea = ({
+  error,
   className,
   inputStyle,
-  error,
   ...props
-}: InputProps) => {
+}: TextareaProps) => {
   return (
     <>
-      <input
+      <textarea
         {...props}
         className={cn(
-          "text-primary-400 border-primary-100 placeholder-bold rounded-base w-full border px-4 py-3 text-base placeholder:text-base focus:outline-none",
+          "text-primary-400 border-primary-100 placeholder-bold rounded-base w-full border px-4 py-3 text-base placeholder:text-base",
           className,
           inputStyle,
         )}
@@ -37,4 +38,4 @@ export const Input = ({
   );
 };
 
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";
