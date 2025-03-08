@@ -63,7 +63,7 @@ export const FloatingLabelInput = ({
           <label
             htmlFor={label}
             className={cn(
-              "peer-focus:text-primary-400 peer-focus:text-secondary-400 absolute top-4 origin-[0] -translate-y-6 scale-75 transform rounded-full bg-white px-1 text-base text-neutral-300 duration-300 peer-placeholder-shown:-translate-y-1 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:bg-white",
+              "peer-focus:text-primary-400 peer-focus:text-primary-400 absolute top-4 origin-[0] -translate-y-6 scale-75 transform rounded-full bg-white px-1 text-base text-neutral-300 duration-300 peer-placeholder-shown:-translate-y-1 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:bg-white",
               Icon ? "left-12" : "left-3",
             )}
           >
