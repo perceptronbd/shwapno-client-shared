@@ -35,24 +35,17 @@ export const ImageInput: React.FC<ImageInputProps> = ({
 
   // Update preview when value changes
   useEffect(() => {
-    let objectUrl: string | null = null;
     if (typeof value === "string") {
       // If value is a URL, use it as the preview
       setPreview(value);
     } else if (value instanceof File) {
       // If value is a File, create a URL for preview
-      objectUrl = URL.createObjectURL(value);
+      const objectUrl = URL.createObjectURL(value);
       setPreview(objectUrl);
     } else {
       setPreview("");
     }
-
-    return () => {
-      if (objectUrl) {
-        URL.revokeObjectURL(objectUrl);
-      }
-    };
-  }, [value, preview]);
+  }, [value]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;

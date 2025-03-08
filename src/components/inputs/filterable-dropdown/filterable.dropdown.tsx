@@ -19,6 +19,7 @@ interface FilterableDropdownProps<T extends FieldValues> {
   placeholder?: string;
   className?: string;
   disabled?: boolean;
+  defaultText?: string;
 }
 
 export const FilterableDropdown = <T extends FieldValues>({
@@ -29,9 +30,10 @@ export const FilterableDropdown = <T extends FieldValues>({
   placeholder = "Select or type to filter...",
   className,
   disabled = false,
+  defaultText,
 }: FilterableDropdownProps<T>) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [filterText, setFilterText] = React.useState("");
+  const [filterText, setFilterText] = React.useState(defaultText ?? "");
   const dropdownRef = React.useRef<HTMLDivElement>(null);
 
   const {
