@@ -14,6 +14,7 @@ interface FilterableDropdownOption {
 interface FilterableDropdownProps<T extends FieldValues> {
   name: Path<T>;
   control: Control<T>;
+  creatable?: boolean;
   options: FilterableDropdownOption[];
   label?: string;
   placeholder?: string;
@@ -27,6 +28,7 @@ export const FilterableDropdown = <T extends FieldValues>({
   control,
   options,
   label,
+  creatable = false,
   placeholder = "Select or type to filter...",
   className,
   disabled = false,
@@ -65,6 +67,9 @@ export const FilterableDropdown = <T extends FieldValues>({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterText(e.target.value);
     if (!isOpen) setIsOpen(true);
+    if (creatable) {
+      field.onChange(e.target.value);
+    }
   };
 
   // Handle input focus
@@ -110,12 +115,12 @@ export const FilterableDropdown = <T extends FieldValues>({
     <>
       <div className={cn("relative w-full", className)} ref={dropdownRef}>
         {label && (
-          <label className="text-primary-400 mb-2 block text-sm font-medium">
+          <label className="mb-2 block text-sm font-medium text-primary-400">
             {label}
           </label>
         )}
 
-        <div className="rounded-base relative border border-neutral-200">
+        <div className="relative rounded-base border border-neutral-200">
           <Input
             value={filterText}
             onChange={handleInputChange}
@@ -149,11 +154,7 @@ export const FilterableDropdown = <T extends FieldValues>({
         </div>
 
         {isOpen && (
-          <div
-            className="border-primary-100 absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-white shadow-lg"
-            role="listbox"
-            aria-label={`Options for ${label ?? name}`}
-          >
+          <div className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md border border-primary-100 bg-white shadow-lg">
             {filteredOptions.length > 0 ? (
               <Radio
                 name={name}
@@ -162,6 +163,10 @@ export const FilterableDropdown = <T extends FieldValues>({
                 onValueChange={handleRadioChange}
                 className="p-2"
               />
+            ) : creatable ? (
+              <div className="p-4 text-sm text-gray-500">
+                Press Enter to create &quot;{filterText}&quot;
+              </div>
             ) : (
               <div className="p-4 text-sm text-gray-500">
                 No options match your search
