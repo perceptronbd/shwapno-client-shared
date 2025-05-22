@@ -19,7 +19,7 @@ type ErrorType =
   | undefined;
 
 interface ImageInputProps {
-  value: File | null;
+  value: File | null | string;
   onChange: (file: File | null) => void;
   error?: ErrorType | string;
   className?: string;
@@ -66,7 +66,7 @@ export const ImageInput: React.FC<ImageInputProps> = ({
       <label
         htmlFor="image-upload"
         className={cn(
-          "xl:h-46 flex h-32 w-full flex-col items-center justify-center rounded-md border border-dashed border-neutral-400 bg-neutral-200 p-4 text-base text-neutral-600 hover:cursor-pointer sm:h-80",
+          "flex h-32 w-full flex-col items-center justify-center rounded-md border border-dashed border-neutral-400 bg-neutral-200 p-4 text-base text-neutral-600 hover:cursor-pointer sm:h-80 xl:h-46",
           className,
         )}
       >
